@@ -28,10 +28,18 @@ a {
   justify-content: space-evenly;
   align-content: space-between;
 }
+.nav-bar .contenedor-links-nav .link {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 16px;
+  margin: 0 10px 0 10px;
+  box-shadow: inset -1px 3px 8px 5px rgba(250, 249, 248, 0.685);
+}
 .nav-bar .contenedor-links-nav a {
   font-size: larger;
   color: #e3e3e9;
-  margin: 0 10px 0 10px;
 }
 
 .contenedor-imagen-fondo {
