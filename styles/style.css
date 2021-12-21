@@ -14,7 +14,7 @@ a {
 
 .nav-bar {
   display: flex;
-  background-color: #693395;
+  background-color: #847194;
   justify-content: space-around;
   padding: 20px;
 }
@@ -35,7 +35,8 @@ a {
   border: 1px solid grey;
   border-radius: 16px;
   margin: 0 10px 0 10px;
-  box-shadow: inset -1px 3px 8px 5px rgba(250, 249, 248, 0.685);
+  box-shadow: 0px 0px 5px 3px #C2C2C2;
+  background-color: #693395;
 }
 .nav-bar .contenedor-links-nav a {
   font-size: larger;

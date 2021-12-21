@@ -4,7 +4,7 @@
 
 .nav-bar{
     display: flex;
-    background-color: $color-background-principal;
+    background-color: $color-background-secundario;
     justify-content:space-around;
     padding: 20px;
     .titulo{
@@ -23,7 +23,8 @@
             border: 1px solid grey;
             border-radius: 16px;
             margin: 0 10px 0 10px;
-            box-shadow: inset -1px 3px 8px 5px $color-boton-nav;
+            box-shadow:0px 0px 5px 3px  #C2C2C2 ;
+            background-color: $color-background-principal;
         }
         a{  
         font-size: larger;
