@@ -46,13 +46,28 @@
     background-image: url("/fondo-espacio.png");
 }
 
+.section-busqueda{
+    @include flex-centrar($direccion: row, $content:space-around)
+    
+
+}
+
 form{
- @include flex-centrar($direccion: row,$content:center);
-    input{
-            width: 500px;
-            height: 30px;
-            margin-left: 20px;
-        }
+ @include flex-centrar($direccion: row,$content:space-around);
+    .input{
+        width: 500px;
+        height: 30px; 
+        margin: 10px;      
+    }
+    .select{
+        width: 200px;
+        height: 30px;
+    }
+    .btn-buscar{
+        width: 200px;
+        height: 30px; 
+        margin: 10px;     
+    }
 }
 
  

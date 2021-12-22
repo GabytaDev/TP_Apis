@@ -53,16 +53,32 @@ a {
   background-image: url("/fondo-espacio.png");
 }
 
+.section-busqueda {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 form {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-form input {
+form .input {
   width: 500px;
   height: 30px;
-  margin-left: 20px;
+  margin: 10px;
+}
+form .select {
+  width: 200px;
+  height: 30px;
+}
+form .btn-buscar {
+  width: 200px;
+  height: 30px;
+  margin: 10px;
 }
 
 .contenedor-tarjetas {
