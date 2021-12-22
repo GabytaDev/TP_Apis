@@ -4,7 +4,7 @@
 
 .nav-bar{
     display: flex;
-    background-color: $color-background-secundario;
+    background-color: $color-background-principal;
     justify-content:space-around;
     padding: 20px;
     .titulo{
@@ -42,7 +42,8 @@
     height: 400px;
     width: 100%;
     overflow: hidden;
-    background-color: $color-background-secundario;  
+    //background-color: $color-background-secundario;  
+    background-image: url("/fondo-espacio.png");
 }
 
 form{
