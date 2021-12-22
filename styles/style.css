@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: #000021;
+  justify-content: space-around;
+  padding: 20px;
+}
+.nav-bar .titulo {
+  align-content: flex-start;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #ebe8e8;
+}
+.nav-bar .contenedor-links-nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+.nav-bar .contenedor-links-nav .link {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 16px;
+  margin: 0 10px 0 10px;
+  box-shadow: 0px 0px 5px 3px #C2C2C2;
+  background-color: #000021;
+}
+.nav-bar .contenedor-links-nav a {
+  font-size: larger;
+  color: #ebe8e8;
+}
+
+.contenedor-imagen-fondo {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("/fondo-espacio.png");
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+form input {
+  width: 500px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.contenedor-tarjetas {
+  background-color: #847194;
+  width: auto;
+  height: auto;
+  margin: 30px;
+}
+
+.tarjeta-personaje {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #000021;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

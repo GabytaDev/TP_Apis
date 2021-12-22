@@ -1,0 +1,75 @@
+@import "reset";
+@import "mixins";
+@import "variables";
+
+.nav-bar{
+    display: flex;
+    background-color: $color-background-principal;
+    justify-content:space-around;
+    padding: 20px;
+    .titulo{
+    align-content:flex-start;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: $color-texto-principal;
+    }
+    .contenedor-links-nav{
+    display: flex;
+    justify-content:space-evenly;
+    align-content: space-between;
+        .link{
+            width: auto;
+            height: auto;
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 16px;
+            margin: 0 10px 0 10px;
+            box-shadow:0px 0px 5px 3px  #C2C2C2 ;
+            background-color: $color-background-principal;
+        }
+        a{  
+        font-size: larger;
+        color: $color-texto-principal;
+        
+        }
+    }
+
+}
+
+.contenedor-imagen-fondo{
+    display: flex; 
+    align-content: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    //background-color: $color-background-secundario;  
+    background-image: url("/fondo-espacio.png");
+}
+
+form{
+ @include flex-centrar($direccion: row,$content:center);
+    input{
+            width: 500px;
+            height: 30px;
+            margin-left: 20px;
+        }
+}
+
+ 
+.contenedor-tarjetas{
+     background-color: $color-background-secundario;
+     width: auto;
+     height: auto;   
+     margin: 30px;
+}
+.tarjeta-personaje{
+     display: flex;
+     flex-wrap: wrap;  
+     justify-content: center;
+}
+.card{
+     margin: 20px;
+     padding: 20px;
+     border: 1px solid $color-background-principal;
+     border-radius: 10px;
+ }
