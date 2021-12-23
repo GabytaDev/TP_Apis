@@ -68,17 +68,24 @@ form {
 }
 form .input {
   width: 500px;
-  height: 30px;
+  height: 40px;
   margin: 10px;
 }
 form .select {
   width: 200px;
-  height: 30px;
+  height: 40px;
 }
 form .btn-buscar {
   width: 200px;
-  height: 30px;
+  height: 40px;
   margin: 10px;
+  border: 1px solid #847194;
+  background-color: #323285;
+  border-radius: 5px;
+  color: #ebe8e8;
+  font-size: larger;
+  box-shadow: 0px 0px 5px 3px #C2C2C2;
+  cursor: pointer;
 }
 
 .contenedor-tarjetas {

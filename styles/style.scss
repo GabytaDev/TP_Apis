@@ -23,7 +23,7 @@
             border: 1px solid grey;
             border-radius: 16px;
             margin: 0 10px 0 10px;
-            box-shadow:0px 0px 5px 3px  #C2C2C2 ;
+            box-shadow:$sombra-principal;
             background-color: $color-background-principal;
         }
         a{  
@@ -41,32 +41,28 @@
     justify-content: center;
     height: 400px;
     width: 100%;
-    overflow: hidden;
-    //background-color: $color-background-secundario;  
+    overflow: hidden; 
     background-image: url("/fondo-espacio.png");
 }
 
 .section-busqueda{
     @include flex-centrar($direccion: row, $content:space-around)
-    
-
 }
 
 form{
  @include flex-centrar($direccion: row,$content:space-around);
     .input{
         width: 500px;
-        height: 30px; 
+        height: 40px; 
         margin: 10px;      
     }
     .select{
         width: 200px;
-        height: 30px;
+        height: 40px;
     }
     .btn-buscar{
-        width: 200px;
-        height: 30px; 
-        margin: 10px;     
+        @include btn($backgroundColor:$color-boton-background );
+         
     }
 }
 
