@@ -58,6 +58,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
 }
 
 form {
@@ -79,7 +80,7 @@ form .btn-buscar {
   width: 200px;
   height: 40px;
   margin: 10px;
-  border: 1px solid #847194;
+  border: 1px solid #542e74;
   background-color: #323285;
   border-radius: 5px;
   color: #ebe8e8;
@@ -89,7 +90,6 @@ form .btn-buscar {
 }
 
 .contenedor-tarjetas {
-  background-color: #847194;
   width: auto;
   height: auto;
   margin: 30px;

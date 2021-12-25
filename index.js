@@ -35,10 +35,10 @@ const mostrarPersonajeEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
       return acc = acc + 
       `<div class="card" data-id=${curr.id}>
-       <h3>Nombre: ${curr.name}</h3>
+       <h3>Name: ${curr.name}</h3>
        <img src="${curr.image}"></img>
-       <p>Genero: ${curr.gender}</p>
-       <p>Especie: ${curr.species}</p>
+       <p>Gender: ${curr.gender}</p>
+       <p>Specie: ${curr.species}</p>
      </div>`
     },"")
     tarjetaPersonaje.innerHTML = html
