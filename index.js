@@ -46,4 +46,77 @@ const mostrarPersonajeEnHTML = (array) => {
    // detalleDePersonaje()
 }  
 
+const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
+    console.log(tipoDeBusqueda, parametroDeBusqueda)
+   if(tipoDeBusqueda === "character"){
+    obtenerPersonaje(parametroDeBusqueda)
+   } else if(tipoDeBusqueda === "episode"){
+    buscarEpisodio(parametroDeBusqueda)
+   }else{
+    buscarUbicacion(parametroDeBusqueda)
+   }
+}
 
+/**** Fetch que filtra por personaje *****/
+const obtenerPersonaje = (nombrePersonaje)=>{
+    console.log(nombrePersonaje)
+    fetch(`${baseUrl}character/?name=${nombrePersonaje}`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log (data)
+        mostrarPersonajeEnHTML(data.results) 
+    })   
+}
+/**** Fetch que filtra por episodio *****/
+const buscarEpisodio = (episodio)=>{
+    fetch(`${baseUrl}episode?name=${episodio}`)
+    .then((res)=> res.json())
+    .then((data)=>{
+        console.log(data)
+        mostrarEpisodioEnHTML(data.results)
+    })
+   
+}
+
+////// EPISODIOS ////
+const mostrarEpisodioEnHTML = (array) => {
+
+    const html = array.reduce((acc,curr)=>{
+        return acc = acc + 
+        `<div class="card">
+    <h3>Nombre: ${curr.name}</h3>
+    <p>Episodio: ${curr.episode}</p>
+    <p> Más información</p>
+    <link rel="stylesheet" href="">
+    </div>`
+      },"")
+
+    tarjetaPersonaje.innerHTML = html  
+  
+} 
+/*
+const buscarUbicacion = (ubicacion)=>{
+    fetch(`${baseUrl}location/${ubicacion}`)
+    .then((res)=> res.json())
+    .then((data)=>{
+        console.log(data)
+        mostrarUbicacionEnHTML(data.results)
+    })
+   
+}
+
+const mostrarUbicacionEnHTML = (array) => {
+
+    const html = array.reduce((acc,curr)=>{
+        return acc = acc + 
+        `<div class="card">
+    <h3>Nombre: ${curr.name}</h3>
+    <p>Episodio: ${curr.episode}</p>
+    <p> Más información</p>
+    <link rel="stylesheet" href="">
+    </div>`
+      },"")
+
+    tarjetaPersonaje.innerHTML = html  
+  
+} */
