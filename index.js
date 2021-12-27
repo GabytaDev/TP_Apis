@@ -37,12 +37,13 @@ linkCharacters.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
     todosLosPersonajes()
+    
 }
 
 linkEpisodes.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)   
- todosLosEpisodios()
+    todosLosEpisodios()
 }
 linkLocations.onclick = (e)=>{
     e.preventDefault()
@@ -90,7 +91,6 @@ formulario.onsubmit = (event) => {
 
 botonBuscar.onclick = ()=>{
    buscador ( selectBusqueda.value, inputBuscador.value)
-
 }
 
 ///PERSONAJE EN HTML ///
