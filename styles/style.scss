@@ -83,4 +83,18 @@ form{
      padding: 20px;
      border: 1px solid $color-background-principal;
      border-radius: 10px;
- }
+}
+
+.tarjeta-episodios{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center; 
+} 
+.tarjeta-ubicaciones{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;   
+}
+.ocultar{
+    display: none;
+}

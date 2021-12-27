@@ -3,25 +3,50 @@ const linkCharacters = document.getElementById("link-characters")
 const linkEpisodes = document.getElementById("link-episodes")
 const linkLocations = document.getElementById("link-locations")
 
+const tarjetaPersonaje = document.querySelector(".tarjeta-personaje")
+const tarjetaEpisodios = document.querySelector(".tarjeta-episodios")
+const tarjetaUbicaciones = document.querySelector(".tarjeta-ubicaciones")
+
 const contenedorTarjetas = document.querySelector(".contenedor-tarjetas")
 const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
-const tarjetaPersonaje = document.querySelector(".tarjeta-personaje")
 const selectBusqueda = document.getElementById("select-busqueda")
-
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
+//vista tarjetas///
+const arrayTarjetas = [
+    tarjetaPersonaje,
+    tarjetaEpisodios,
+    tarjetaUbicaciones 
+]
+
+const mostrarTarjetas = (array, tarjeta)=>{
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] != tarjeta){
+            array[i].classList.add("ocultar")
+        }else if(array[i]=== tarjeta){
+            array[i].classList.remove("ocultar")
+        }  
+    }
+}
+
 //links nav-bar///
-linkCharacters.onclick = ()=>{
+linkCharacters.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
     todosLosPersonajes()
 }
 
-linkEpisodes.onclick = ()=>{
+linkEpisodes.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)   
  todosLosEpisodios()
 }
-linkLocations.onclick = ()=>{
+linkLocations.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
     todasLasUbicaciones()
 }
 
@@ -86,7 +111,7 @@ const mostrarPersonajeEnHTML = (array) => {
 
 ////// EPISODIOS EN HTML////
 const mostrarEpisodioEnHTML = (array) => {
-
+    
     const html = array.reduce((acc,curr)=>{
         return acc = acc + 
         `<div class="card">
@@ -97,7 +122,7 @@ const mostrarEpisodioEnHTML = (array) => {
     </div>`
       },"")
 
-    tarjetaPersonaje.innerHTML = html  
+    tarjetaEpisodios.innerHTML = html  
   
 } 
 
@@ -111,9 +136,7 @@ const mostrarUbicacionEnHTML = (array) => {
         <link rel="stylesheet" href="">
         </div>`  
     },"")
-    tarjetaPersonaje.innerHTML = html
-       
-  
+    tarjetaUbicaciones.innerHTML = html      
 } 
 ///BUSCADOR ////
 
