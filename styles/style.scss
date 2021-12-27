@@ -70,31 +70,22 @@ form{
  
 .contenedor-tarjetas-personaje{
     width: auto;
-    height: auto;   
-    margin: 30px;
+    height: auto;  
 }
-.tarjeta-personaje{
-     display: flex;
-     flex-wrap: wrap;  
-     justify-content: center;
-}
+.tarjeta-personaje,.tarjeta-episodios,.tarjeta-ubicaciones {
+    @include tarjeta
+} 
 .card{
      margin: 20px;
      padding: 20px;
-     border: 1px solid $color-background-principal;
+     border: 1px solid $color-background-secundario;
      border-radius: 10px;
+     box-shadow: $sombra-principal;
+     background-color: white;
 }
 
-.tarjeta-episodios{
-    display: flex;
-    flex-wrap: wrap;  
-    justify-content: center; 
-} 
-.tarjeta-ubicaciones{
-    display: flex;
-    flex-wrap: wrap;  
-    justify-content: center;   
-}
+
+
 .ocultar{
     display: none;
 }

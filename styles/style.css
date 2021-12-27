@@ -89,35 +89,25 @@ form .btn-buscar {
   cursor: pointer;
 }
 
-.contenedor-tarjetas {
+.contenedor-tarjetas-personaje {
   width: auto;
   height: auto;
-  margin: 30px;
 }
 
-.tarjeta-personaje {
+.tarjeta-personaje, .tarjeta-episodios, .tarjeta-ubicaciones {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #000021;
 }
 
 .card {
   margin: 20px;
   padding: 20px;
-  border: 1px solid #000021;
+  border: 1px solid #542e74;
   border-radius: 10px;
-}
-
-.tarjeta-episodios {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.tarjeta-ubicaciones {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  box-shadow: 0px 0px 5px 3px #C2C2C2;
+  background-color: white;
 }
 
 .ocultar {
