@@ -47,7 +47,8 @@
 
 .section-busqueda{
     @include flex-centrar($direccion: row, $content:space-around);
-    margin-top: 20px;
+    padding-top: 20px;
+    background-color: rgb(4, 4, 104);
     
 }
 
@@ -81,7 +82,7 @@ form{
      border: 1px solid $color-background-secundario;
      border-radius: 10px;
      box-shadow: $sombra-principal;
-     background-color: white;
+     background-color: rgb(231, 240, 248);
 }
 
 

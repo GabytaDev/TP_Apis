@@ -17,7 +17,7 @@
     box-shadow:0px 0px 5px 3px  #C2C2C2;
     cursor: pointer; 
 }
-@mixin tarjeta ($background-color: rgb(0, 0, 33)){
+@mixin tarjeta ($background-color: rgb(4, 4, 104)){
     display: flex;
     flex-wrap: wrap;  
     justify-content: center; 
