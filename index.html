@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Series finder Rick and Morty</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -15,9 +15,9 @@
             <div><h1 class="titulo">Series finder Rick and Morty</h1></div>
             <div>
                 <ul class="contenedor-links-nav">
-                    <div class="link"><li><a href="#characters">Characters</a></li></div>
-                    <div class="link"><li><a href="#episodes">Episodes</a></li></div>
-                    <div class="link"><li><a href="#locations">Locations</a></li></div> 
+                    <div class="link" id="link-characters"><li><a href="#characters">Characters</a></li></div>
+                    <div class="link" id="link-episodes"><li><a href="#episodes">Episodes</a></li></div>
+                    <div class="link" id="link-locations"><li><a href="#locations">Locations</a></li></div> 
                 </ul>
             </div>
            
@@ -31,11 +31,9 @@
         <section class="section-busqueda">
             <form id="formulario">
                 <input type="text" value="" id="input-buscador" placeholder="Search" class="input"/>
-
                 <select name="" id="select-busqueda" class="select">
                     <option value="character">Characters</option>
                     <option value="episode">Episodes</option>
-                    <option value="locations">Locations</option>
                 </select>
                 <button id="buscar" class="btn-buscar">Search</button>
             </form>
