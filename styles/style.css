@@ -108,4 +108,20 @@ form .btn-buscar {
   border-radius: 10px;
 }
 
+.tarjeta-episodios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tarjeta-ubicaciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ocultar {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

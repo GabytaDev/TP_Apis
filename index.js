@@ -3,25 +3,51 @@ const linkCharacters = document.getElementById("link-characters")
 const linkEpisodes = document.getElementById("link-episodes")
 const linkLocations = document.getElementById("link-locations")
 
+const tarjetaPersonaje = document.querySelector(".tarjeta-personaje")
+const tarjetaEpisodios = document.querySelector(".tarjeta-episodios")
+const tarjetaUbicaciones = document.querySelector(".tarjeta-ubicaciones")
+
 const contenedorTarjetas = document.querySelector(".contenedor-tarjetas")
 const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
-const tarjetaPersonaje = document.querySelector(".tarjeta-personaje")
 const selectBusqueda = document.getElementById("select-busqueda")
-
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
-//links nav-bar///
-linkCharacters.onclick = ()=>{
-    todosLosPersonajes()
+//vista tarjetas///
+const arrayTarjetas = [
+    tarjetaPersonaje,
+    tarjetaEpisodios,
+    tarjetaUbicaciones 
+]
+
+const mostrarTarjetas = (array, tarjeta)=>{
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] != tarjeta){
+            array[i].classList.add("ocultar")
+        }else if(array[i]=== tarjeta){
+            array[i].classList.remove("ocultar")
+        }  
+    }
 }
 
-linkEpisodes.onclick = ()=>{
- todosLosEpisodios()
+//links nav-bar///
+linkCharacters.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
+    todosLosPersonajes()
+    
 }
-linkLocations.onclick = ()=>{
+
+linkEpisodes.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)   
+    todosLosEpisodios()
+}
+linkLocations.onclick = (e)=>{
+    e.preventDefault()
+    mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
     todasLasUbicaciones()
 }
 
@@ -65,7 +91,6 @@ formulario.onsubmit = (event) => {
 
 botonBuscar.onclick = ()=>{
    buscador ( selectBusqueda.value, inputBuscador.value)
-
 }
 
 ///PERSONAJE EN HTML ///
@@ -80,14 +105,13 @@ const mostrarPersonajeEnHTML = (array) => {
      </div>`
     },"")
     tarjetaPersonaje.innerHTML = html
-
-   // detalleDePersonaje()
+   detalleDePersonaje()
 }  
 
 
 ////// EPISODIOS EN HTML////
 const mostrarEpisodioEnHTML = (array) => {
-
+    
     const html = array.reduce((acc,curr)=>{
         return acc = acc + 
         `<div class="card">
@@ -98,7 +122,7 @@ const mostrarEpisodioEnHTML = (array) => {
     </div>`
       },"")
 
-    tarjetaPersonaje.innerHTML = html  
+    tarjetaEpisodios.innerHTML = html  
   
 } 
 
@@ -112,9 +136,7 @@ const mostrarUbicacionEnHTML = (array) => {
         <link rel="stylesheet" href="">
         </div>`  
     },"")
-    tarjetaPersonaje.innerHTML = html
-       
-  
+    tarjetaUbicaciones.innerHTML = html      
 } 
 ///BUSCADOR ////
 
@@ -146,4 +168,39 @@ const buscarEpisodio = (episodio)=>{
         mostrarEpisodioEnHTML(data.results)
     })
    
+}
+
+//// click a tarjeta personaje////
+const detalleDePersonaje = ()=>{
+    const cards = document.querySelectorAll(".card")
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].onclick = ()=>{
+            const idDelpersonaje = cards[i].dataset.id
+            console.log("id personaje",idDelpersonaje)
+            buscarPersonajePorID(idDelpersonaje)
+        }
+        
+    }
+}
+
+const buscarPersonajePorID = (id) =>{
+    console.log(id)
+    fetch(`${baseUrl}character/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("data id",data)
+        mostrarDetallePersonajeHTML(data) 
+    })  
+}
+
+//muestra detalle de 1 solo personaje
+const mostrarDetallePersonajeHTML = (data)=>{
+    tarjetaPersonaje.innerHTML = 
+    `<div class="card">
+    <h3>Nombre: ${data.name}</h3>
+    <img src="${data.image}"></img>
+    <p>Genero: ${data.gender}</p>
+    <p>Especie: ${data.species}</p>
+    <p>Status: ${data.status}</p>
+  </div>`
 }
