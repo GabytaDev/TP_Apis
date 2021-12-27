@@ -81,7 +81,7 @@ const mostrarPersonajeEnHTML = (array) => {
     },"")
     tarjetaPersonaje.innerHTML = html
 
-   // detalleDePersonaje()
+   detalleDePersonaje()
 }  
 
 
@@ -146,4 +146,38 @@ const buscarEpisodio = (episodio)=>{
         mostrarEpisodioEnHTML(data.results)
     })
    
+}
+
+//// click a tarjeta personaje////
+const detalleDePersonaje = ()=>{
+    const cards = document.querySelectorAll(".card")
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].onclick = ()=>{
+            const idDelpersonaje = cards[i].dataset.id
+            buscarPersonajePorID(idDelpersonaje)
+        }
+        
+    }
+}
+
+const buscarPersonajePorID = (id) =>{
+    console.log(id)
+    fetch(`${baseUrl}character/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("data id",data)
+        mostrarDetallePersonajeHTML(data) 
+    })  
+}
+ 
+//muestra detalle de 1 solo personaje
+const mostrarDetallePersonajeHTML = (data)=>{
+    tarjetaPersonaje.innerHTML = 
+    `<div class="card">
+    <h3>Nombre: ${data.name}</h3>
+    <img src="${data.image}"></img>
+    <p>Genero: ${data.gender}</p>
+    <p>Especie: ${data.species}</p>
+    <p>Status: ${data.status}</p>
+  </div>`
 }
