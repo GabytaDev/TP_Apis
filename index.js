@@ -80,7 +80,6 @@ const mostrarPersonajeEnHTML = (array) => {
      </div>`
     },"")
     tarjetaPersonaje.innerHTML = html
-
    detalleDePersonaje()
 }  
 
@@ -154,6 +153,7 @@ const detalleDePersonaje = ()=>{
     for (let i = 0; i < cards.length; i++) {
         cards[i].onclick = ()=>{
             const idDelpersonaje = cards[i].dataset.id
+            console.log("id personaje",idDelpersonaje)
             buscarPersonajePorID(idDelpersonaje)
         }
         
@@ -169,7 +169,7 @@ const buscarPersonajePorID = (id) =>{
         mostrarDetallePersonajeHTML(data) 
     })  
 }
- 
+
 //muestra detalle de 1 solo personaje
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
