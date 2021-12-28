@@ -7,7 +7,7 @@ const tarjetaPersonaje = document.querySelector(".tarjeta-personaje")
 const tarjetaEpisodios = document.querySelector(".tarjeta-episodios")
 const tarjetaUbicaciones = document.querySelector(".tarjeta-ubicaciones")
 
-const contenedorTarjetas = document.querySelector(".contenedor-tarjetas")
+const contenedorTarjetasPersonaje = document.querySelector(".contenedor-tarjetas-personaje")
 const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
@@ -91,6 +91,7 @@ formulario.onsubmit = (event) => {
 
 botonBuscar.onclick = ()=>{
    buscador ( selectBusqueda.value, inputBuscador.value)
+  
 }
 
 ///PERSONAJE EN HTML ///
@@ -144,8 +145,14 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     console.log(tipoDeBusqueda, parametroDeBusqueda)
    if(tipoDeBusqueda === "character"){
     obtenerPersonaje(parametroDeBusqueda)
+    tarjetaPersonaje.classList.remove("ocultar")
+    tarjetaEpisodios.classList.add("ocultar")
+    tarjetaUbicaciones .classList.add("ocultar")
    } else if(tipoDeBusqueda === "episode"){
     buscarEpisodio(parametroDeBusqueda)
+    tarjetaEpisodios.classList.remove("ocultar")
+    tarjetaPersonaje.classList.add("ocultar")
+    tarjetaUbicaciones .classList.add("ocultar")
    }
 }
 
