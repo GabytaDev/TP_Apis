@@ -129,7 +129,6 @@ const mostrarUbicacionEnHTML = (array) => {
         return acc = acc +  `<div class="card">
         <h3>Location: ${curr.name}</h3>
         <p>Type: ${curr.type}</p>
-        <p> More info residents</p>
         <link rel="stylesheet" href="">
         </div>`  
     },"")
@@ -200,10 +199,10 @@ const buscarPersonajePorID = (id) =>{
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
     `<div class="card">
-    <h3>Nombre: ${data.name}</h3>
+    <h3>Name: ${data.name}</h3>
     <img src="${data.image}"></img>
-    <p>Genero: ${data.gender}</p>
-    <p>Especie: ${data.species}</p>
+    <p>Gender: ${data.gender}</p>
+    <p>Specie: ${data.species}</p>
     <p>Status: ${data.status}</p>
   </div>`
 }
@@ -233,9 +232,11 @@ const buscarEpisodioPorID = (id) =>{
 const mostrarDetalleEpisodioHTML = (data)=>{
     tarjetaEpisodios.innerHTML = 
     `<div class="card">
-    <h3>Nombre: ${data.name}</h3>
+    <h3>Name Episode: ${data.name}</h3>
     <p>Air Date: ${data.air_date}</p>
-    <p>Episode: ${data.espisode}</p>
+    <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
 }
+
+///click tarjeta ubicaciones///
