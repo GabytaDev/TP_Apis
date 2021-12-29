@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #040468;
+}
+
 ul {
   list-style: none;
 }
@@ -96,11 +100,20 @@ form .btn-buscar {
   height: auto;
 }
 
-.tarjeta-personaje, .tarjeta-episodios, .tarjeta-ubicaciones {
+.tarjeta-personaje, .tarjeta-ubicaciones {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: #040468;
+  color: #2f2f2f;
+}
+
+.tarjeta-episodios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #040468;
+  color: #2f2f2f;
 }
 
 .card {
@@ -110,6 +123,8 @@ form .btn-buscar {
   border-radius: 10px;
   box-shadow: 0px 0px 5px 3px #C2C2C2;
   background-color: #e7f0f8;
+  color: #2e2d2d;
+  cursor: pointer;
 }
 
 .ocultar {

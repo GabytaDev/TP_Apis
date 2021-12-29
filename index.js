@@ -56,7 +56,6 @@ const todosLosPersonajes = ()=>{
     fetch(`${baseUrl}character`)
     .then(res => res.json())
     .then(data =>{
-        console.log(data)
         mostrarPersonajeEnHTML(data.results)
     })
 }
@@ -68,7 +67,6 @@ const todosLosEpisodios = ()=>{
     fetch(`${baseUrl}episode`)
     .then((res)=> res.json())
     .then((data)=>{
-        console.log(data)
         mostrarEpisodioEnHTML(data.results)
     })
 }
@@ -78,7 +76,6 @@ const todasLasUbicaciones = ()=>{
     fetch(`${baseUrl}/location`)
     .then((res)=> res.json())
     .then((data)=>{
-        console.log(data)
         mostrarUbicacionEnHTML(data.results)
     })
    
@@ -115,16 +112,15 @@ const mostrarEpisodioEnHTML = (array) => {
     
     const html = array.reduce((acc,curr)=>{
         return acc = acc + 
-        `<div class="card">
+        `<div class="card" data-id=${curr.id}>
     <h3>Name: ${curr.name}</h3>
     <p>Episode: ${curr.episode}</p>
-    <p> Más información</p>
     <link rel="stylesheet" href="">
     </div>`
       },"")
 
     tarjetaEpisodios.innerHTML = html  
-  
+  detalleDeEpisodio()
 } 
 
 ///UBICACIONE EN HTML///
@@ -133,7 +129,6 @@ const mostrarUbicacionEnHTML = (array) => {
         return acc = acc +  `<div class="card">
         <h3>Location: ${curr.name}</h3>
         <p>Type: ${curr.type}</p>
-        <p> More info residents</p>
         <link rel="stylesheet" href="">
         </div>`  
     },"")
@@ -204,10 +199,44 @@ const buscarPersonajePorID = (id) =>{
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
     `<div class="card">
-    <h3>Nombre: ${data.name}</h3>
+    <h3>Name: ${data.name}</h3>
     <img src="${data.image}"></img>
-    <p>Genero: ${data.gender}</p>
-    <p>Especie: ${data.species}</p>
+    <p>Gender: ${data.gender}</p>
+    <p>Specie: ${data.species}</p>
     <p>Status: ${data.status}</p>
   </div>`
 }
+
+///click tarjeta episodio///
+const detalleDeEpisodio = ()=>{
+    const cardEpisodio = document.querySelectorAll(".card")
+    for (let i = 0; i < cardEpisodio.length; i++) {
+        cardEpisodio[i].onclick = ()=>{
+            const idDelEpisodio = cardEpisodio[i].dataset.id
+            console.log("id episodio",idDelEpisodio)
+            buscarEpisodioPorID(idDelEpisodio)
+        }    
+    }
+}
+
+const buscarEpisodioPorID = (id) =>{
+    console.log(id)
+    fetch(`${baseUrl}episode/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("data id",data)
+        mostrarDetalleEpisodioHTML(data) 
+    })  
+}
+//muestra detalle de 1 solo episodio
+const mostrarDetalleEpisodioHTML = (data)=>{
+    tarjetaEpisodios.innerHTML = 
+    `<div class="card">
+    <h3>Name Episode: ${data.name}</h3>
+    <p>Air Date: ${data.air_date}</p>
+    <p>Episode: ${data.episode}</p>
+    <p>Created: ${data.created}</p>
+  </div>`
+}
+
+///click tarjeta ubicaciones///
