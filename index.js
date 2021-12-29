@@ -126,13 +126,14 @@ const mostrarEpisodioEnHTML = (array) => {
 ///UBICACIONE EN HTML///
 const mostrarUbicacionEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
-        return acc = acc +  `<div class="card">
+        return acc = acc +  `<div class="card" data-id=${curr.id}>
         <h3>Location: ${curr.name}</h3>
         <p>Type: ${curr.type}</p>
         <link rel="stylesheet" href="">
         </div>`  
     },"")
-    tarjetaUbicaciones.innerHTML = html      
+    tarjetaUbicaciones.innerHTML = html   
+    detalleUbicaciones()  
 } 
 ///BUSCADOR ////
 
@@ -240,3 +241,33 @@ const mostrarDetalleEpisodioHTML = (data)=>{
 }
 
 ///click tarjeta ubicaciones///
+const detalleUbicaciones = ()=>{
+    const cardUbicacion = document.querySelectorAll(".card")
+    for (let i = 0; i < cardUbicacion.length; i++) {
+        cardUbicacion[i].onclick = ()=>{
+            const idUbicacion = cardUbicacion[i].dataset.id
+            console.log("id ubicacion",idUbicacion)
+            buscarUbicacionPorId(idUbicacion)
+        }  
+        
+    }
+}
+
+const buscarUbicacionPorId = (id)=>{
+    fetch(`${baseUrl}location/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("data id ubicacion",data)
+        mostrarDetalleUbicacionHTML(data) 
+    })  
+}
+//muestra detalle de 1 sola ubicacion
+const mostrarDetalleUbicacionHTML = (data)=>{
+    tarjetaUbicaciones.innerHTML = 
+    `<div class="card">
+    <h3>Name Episode: ${data.name}</h3>
+    <p>Type: ${data.type}</p>
+    <p>Dimension: ${data.dimension}</p>
+    <p>Created: ${data.created}</p>
+  </div>` 
+}
