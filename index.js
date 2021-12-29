@@ -261,7 +261,7 @@ const buscarUbicacionPorId = (id)=>{
         mostrarDetalleUbicacionHTML(data) 
     })  
 }
-
+//muestra detalle de 1 sola ubicacion
 const mostrarDetalleUbicacionHTML = (data)=>{
     tarjetaUbicaciones.innerHTML = 
     `<div class="card">
