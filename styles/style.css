@@ -94,6 +94,10 @@ form .btn-buscar {
   cursor: pointer;
   color: #3a3939;
 }
+form .label-orden {
+  color: #ebe8e8;
+  margin-right: 10px;
+}
 
 .contenedor-tarjetas-personaje {
   width: auto;

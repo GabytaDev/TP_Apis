@@ -67,6 +67,10 @@ form{
         @include btn($backgroundColor:$color-boton-background );
          color: rgb(58, 57, 57);
     }
+    .label-orden{
+        color: $color-texto-principal;
+        margin-right: 10px;
+    }
 }
  
 .contenedor-tarjetas-personaje{
