@@ -12,6 +12,7 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
+const selectOrden = document.getElementById("selectOrden")
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -57,6 +58,7 @@ const todosLosPersonajes = ()=>{
     .then(res => res.json())
     .then(data =>{
         mostrarPersonajeEnHTML(data.results)
+        console.log(data.results)
     })
 }
 
@@ -104,12 +106,12 @@ const mostrarPersonajeEnHTML = (array) => {
     },"")
     tarjetaPersonaje.innerHTML = html
    detalleDePersonaje()
+   //ordenarPor(array)
 }  
 
 
 ////// EPISODIOS EN HTML////
 const mostrarEpisodioEnHTML = (array) => {
-    
     const html = array.reduce((acc,curr)=>{
         return acc = acc + 
         `<div class="card" data-id=${curr.id}>
@@ -160,6 +162,7 @@ const obtenerPersonaje = (nombrePersonaje)=>{
     .then((data) => {
         console.log (data)
         mostrarPersonajeEnHTML(data.results) 
+
     })   
 }
 /**** Fetch que filtra por episodio *****/
@@ -271,3 +274,10 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     <p>Created: ${data.created}</p>
   </div>` 
 }
+//ordenar A/Z
+/*
+const ordenarPor = (array, value) => {
+  
+
+} */
+
