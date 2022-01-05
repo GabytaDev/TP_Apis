@@ -55,7 +55,7 @@
 form{
  @include flex-centrar($direccion: row,$content:space-around);
     .input{
-        width: 500px;
+        width: 200px;
         height: 40px; 
         margin: 10px;      
     }
@@ -68,12 +68,16 @@ form{
         @include btn($backgroundColor:$color-boton-background );
          color: rgb(58, 57, 57);
     }
-    .label-orden{
+    .label{
         color: $color-texto-principal;
         margin-right: 10px;
     }
 }
- 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
 .contenedor-tarjetas-personaje{
     width: auto;
     height: auto;  
