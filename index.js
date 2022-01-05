@@ -12,7 +12,9 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
-const selectTipo = document.getAnimations("select-tipo")
+const selectStatus = document.getElementById("select-status")
+const selectGender = document.getElementById("select-gender")
+
 const selectOrden = document.getElementById("select-orden")
 
 const baseUrl = "https://rickandmortyapi.com/api/"
@@ -93,8 +95,7 @@ formulario.onsubmit = (event) => {
 };
 
 botonBuscar.onclick = ()=>{
-   buscador ( selectBusqueda.value, inputBuscador.value)
-  
+   buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
 }
 
 ///PERSONAJE EN HTML ///
@@ -157,7 +158,7 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     tarjetaUbicaciones .classList.add("ocultar")
    }
 }
-
+/*https://rickandmortyapi.com/api/character/?name=summer&status=dead&gender=female */
 /**** Fetch que filtra por personaje *****/
 const obtenerPersonaje = (nombrePersonaje)=>{
     console.log(nombrePersonaje)

@@ -73,7 +73,7 @@ form {
   align-items: center;
 }
 form .input {
-  width: 500px;
+  width: 200px;
   height: 40px;
   margin: 10px;
 }
@@ -95,7 +95,7 @@ form .btn-buscar {
   cursor: pointer;
   color: #3a3939;
 }
-form .label-orden {
+form .label {
   color: #ebe8e8;
   margin-right: 10px;
 }
