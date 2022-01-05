@@ -158,11 +158,11 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     tarjetaUbicaciones .classList.add("ocultar")
    }
 }
-/*https://rickandmortyapi.com/api/character/?name=summer&status=dead&gender=female */
+
 /**** Fetch que filtra por personaje *****/
 const obtenerPersonaje = (nombrePersonaje)=>{
     console.log(nombrePersonaje)
-    fetch(`${baseUrl}character/?name=${nombrePersonaje}`)
+    fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${selectStatus.value}&gender=${selectGender.value}`)
     .then((res) => res.json())
     .then((data) => {
         console.log (data)
