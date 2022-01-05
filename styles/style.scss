@@ -42,7 +42,7 @@
     height: 400px;
     width: 100%;
     overflow: hidden; 
-    background-image: url("/fondo-espacio.png");
+    background-image: url(../images/fondo-espacio.png);  
 }
 
 .section-busqueda{
@@ -62,10 +62,15 @@ form{
     .select{
         width: 200px;
         height: 40px;
+        margin: 0 5px 0 5px;
     }
     .btn-buscar{
         @include btn($backgroundColor:$color-boton-background );
          color: rgb(58, 57, 57);
+    }
+    .label-orden{
+        color: $color-texto-principal;
+        margin-right: 10px;
     }
 }
  

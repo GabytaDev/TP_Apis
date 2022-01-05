@@ -54,7 +54,7 @@ a {
   height: 400px;
   width: 100%;
   overflow: hidden;
-  background-image: url("/fondo-espacio.png");
+  background-image: url(../images/fondo-espacio.png);
 }
 
 .section-busqueda {
@@ -80,6 +80,7 @@ form .input {
 form .select {
   width: 200px;
   height: 40px;
+  margin: 0 5px 0 5px;
 }
 form .btn-buscar {
   width: 200px;
@@ -93,6 +94,10 @@ form .btn-buscar {
   box-shadow: 0px 0px 5px 3px #C2C2C2;
   cursor: pointer;
   color: #3a3939;
+}
+form .label-orden {
+  color: #ebe8e8;
+  margin-right: 10px;
 }
 
 .contenedor-tarjetas-personaje {

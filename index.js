@@ -12,6 +12,8 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
+const selectTipo = document.getAnimations("select-tipo")
+const selectOrden = document.getElementById("select-orden")
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -51,12 +53,16 @@ linkLocations.onclick = (e)=>{
     todasLasUbicaciones()
 }
 
+
 //todos los personajes //
 const todosLosPersonajes = ()=>{
     fetch(`${baseUrl}character`)
     .then(res => res.json())
     .then(data =>{
         mostrarPersonajeEnHTML(data.results)
+        console.log(data.results)
+        ordenarAZ (data.results, selectOrden.value)
+      
     })
 }
 
@@ -104,12 +110,12 @@ const mostrarPersonajeEnHTML = (array) => {
     },"")
     tarjetaPersonaje.innerHTML = html
    detalleDePersonaje()
+   
 }  
 
 
 ////// EPISODIOS EN HTML////
 const mostrarEpisodioEnHTML = (array) => {
-    
     const html = array.reduce((acc,curr)=>{
         return acc = acc + 
         `<div class="card" data-id=${curr.id}>
@@ -160,6 +166,7 @@ const obtenerPersonaje = (nombrePersonaje)=>{
     .then((data) => {
         console.log (data)
         mostrarPersonajeEnHTML(data.results) 
+
     })   
 }
 /**** Fetch que filtra por episodio *****/
@@ -270,4 +277,50 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     <p>Dimension: ${data.dimension}</p>
     <p>Created: ${data.created}</p>
   </div>` 
+}
+//ordenar A/Z
+
+
+selectOrden.onchange = ()=>{
+    todosLosPersonajes()
+}
+
+const ordenarAZ = (data,value) =>{
+    if(value === "a/z"){
+        const ordenadoAZ = data.sort((a,b)=>{
+            if(a.name.toLowerCase() < b.name.toLowerCase()){
+                return -1
+            }
+            if(a.name.toLowerCase() > b.name.toLowerCase()){
+                return 1
+            }
+            return 0
+        })
+        mostrarOrdenado(ordenadoAZ)
+    }
+    if(value === "z/a"){
+        const ordenadoZA = data.sort((a,b)=>{
+            if(a.name.toLowerCase() > b.name.toLowerCase()){
+                return -1
+            }
+            if(a.name.toLowerCase() < b.name.toLowerCase()){
+                return 1
+            }
+            return 0
+        })
+       mostrarOrdenado(ordenadoZA)
+    }
+}
+
+const mostrarOrdenado = (array)=>{
+    const html = array.reduce((acc,curr)=>{
+        return acc = acc + 
+        `<div class="card" data-id=${curr.id}>
+         <h3>Name: ${curr.name}</h3>
+         <img src="${curr.image}"></img>
+         <p>Gender: ${curr.gender}</p>
+         <p>Specie: ${curr.species}</p>
+       </div>`
+    },"")
+    tarjetaPersonaje.innerHTML = html
 }
