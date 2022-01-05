@@ -54,7 +54,7 @@ a {
   height: 400px;
   width: 100%;
   overflow: hidden;
-  background-image: url("/fondo-espacio.png");
+  background-image: url(../images/fondo-espacio.png);
 }
 
 .section-busqueda {
