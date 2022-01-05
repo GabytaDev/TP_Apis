@@ -73,7 +73,11 @@ form{
         margin-right: 10px;
     }
 }
- 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
 .contenedor-tarjetas-personaje{
     width: auto;
     height: auto;  

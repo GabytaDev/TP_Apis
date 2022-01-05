@@ -35,20 +35,25 @@
                     <option value="character">Characters</option>
                     <option value="episode">Episodes</option>
                 </select>
-                <label for="status" class="label">Status</label>
-                <select name="status" id="select-status" class="select">        
-                    <option value="alive">Alive</option>
-                    <option value="dead">Dead</option>
-                    <option value="unknown">Unknown</option>
-                </select>
+                <div class="column">
+                    <label for="status" class="label">Status</label>
+                    <select name="status" id="select-status" class="select">        
+                        <option value="alive">Alive</option>
+                        <option value="dead">Dead</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
                 
-                <label for="gender" class="label">Gender</label>
-                <select name="" id="select-gender" class="select">
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="genderless">Genderless</option>
-                    <option value="unknown">Unknown</option>
-                </select>
+                <div class="column">
+                    <label for="gender" class="label">Gender</label>
+                    <select name="" id="select-gender" class="select">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="genderless">Genderless</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                
                 <button id="buscar" class="btn-buscar">Search</button>
             </form>
             <form class="form-ordenar">
