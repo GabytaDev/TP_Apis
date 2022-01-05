@@ -62,6 +62,7 @@ form{
     .select{
         width: 200px;
         height: 40px;
+        margin: 0 5px 0 5px;
     }
     .btn-buscar{
         @include btn($backgroundColor:$color-boton-background );

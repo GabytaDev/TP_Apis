@@ -12,6 +12,7 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
+const selectTipo = document.getAnimations("select-tipo")
 const selectOrden = document.getElementById("select-orden")
 
 const baseUrl = "https://rickandmortyapi.com/api/"
@@ -281,7 +282,6 @@ const mostrarDetalleUbicacionHTML = (data)=>{
 
 
 selectOrden.onchange = ()=>{
-    console.log("select",selectOrden.value)
     todosLosPersonajes()
 }
 
@@ -296,9 +296,7 @@ const ordenarAZ = (data,value) =>{
             }
             return 0
         })
-        
-        console.log("data az",ordenadoAZ)
-        mostrarOrdenadoHTMLAZ(ordenadoAZ)
+        mostrarOrdenado(ordenadoAZ)
     }
     if(value === "z/a"){
         const ordenadoZA = data.sort((a,b)=>{
@@ -310,28 +308,12 @@ const ordenarAZ = (data,value) =>{
             }
             return 0
         })
-        console.log("orden za", ordenadoZA)
-        mostrarOrdenadoHTMLZA(ordenadoZA)
+       mostrarOrdenado(ordenadoZA)
     }
 }
 
-
-const mostrarOrdenadoHTMLAZ = (ordenadoAZ)=>{
-    const html = ordenadoAZ.reduce((acc,curr)=>{
-        return acc = acc + 
-        `<div class="card" data-id=${curr.id}>
-         <h3>Name: ${curr.name}</h3>
-         <img src="${curr.image}"></img>
-         <p>Gender: ${curr.gender}</p>
-         <p>Specie: ${curr.species}</p>
-       </div>`
-    },"")
-    tarjetaPersonaje.innerHTML = html
-}
-
-
-const mostrarOrdenadoHTMLZA = (ordenadoZA)=>{
-    const html = ordenadoZA.reduce((acc,curr)=>{
+const mostrarOrdenado = (array)=>{
+    const html = array.reduce((acc,curr)=>{
         return acc = acc + 
         `<div class="card" data-id=${curr.id}>
          <h3>Name: ${curr.name}</h3>
