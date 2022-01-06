@@ -143,4 +143,17 @@ form .label {
   display: none;
 }
 
+.seccion-paginado {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ebe8e8;
+}
+.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left {
+  color: #ebe8e8;
+  width: 30px;
+  height: 30px;
+}
+
 /*# sourceMappingURL=style.css.map */

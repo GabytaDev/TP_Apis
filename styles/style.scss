@@ -100,8 +100,15 @@ form{
      cursor: pointer;
 }
 
-
-
 .ocultar{
     display: none;
+}
+.seccion-paginado{
+   @include flex-centrar;
+   color: $color-texto-principal;
+   .fa-angle-right, .fa-angle-left{
+    color: $color-texto-principal;
+    width: 30px;
+    height: 30px;
+}
 }

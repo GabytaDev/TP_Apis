@@ -344,3 +344,5 @@ const mostrarOrdenado = (array)=>{
     },"")
     tarjetaPersonaje.innerHTML = html
 }
+
+////// PAGINADO ////
