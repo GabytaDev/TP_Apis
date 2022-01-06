@@ -102,6 +102,7 @@ formulario.onsubmit = (event) => {
 
 };
 
+///Deshabilitar selects///
 selectBusqueda.onchange = ()=>{
     if(selectBusqueda.value === "episode"){
         selectGender.disabled = true;
