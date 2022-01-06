@@ -12,13 +12,13 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
-const selectStatus = document.getElementById("select-status").disabled = false;
-const selectGender = document.getElementById("select-gender").disabled = false;
+const selectStatus = document.getElementById("select-status")
+const selectGender = document.getElementById("select-gender")
 
 const selectOrden = document.getElementById("select-orden")
 
-const optionCharacters = getElementById("option-characters")
-const optionEpisodes = getElementById("option-episodes").disabled = false
+//const optionCharacters = getElementById("option-characters");
+//const optionEpisodes = getElementById("option-episodes")
 
 /* Seleccionar select de personaje o episodio
 Cuando haya un onchange
@@ -103,12 +103,14 @@ formulario.onsubmit = (event) => {
 };
 
 selectBusqueda.onchange = ()=>{
-    if(optionEpisodes.value === "true"){
+    if(selectBusqueda.value === "episode"){
+        selectGender.disabled = true;
         selectStatus.disabled = true
-        selectGender.disabled= true
+    }else{
+        selectGender.disabled = false;
+        selectStatus.disabled = false
     }
 }
-
 
 botonBuscar.onclick = ()=>{
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
