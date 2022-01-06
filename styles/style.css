@@ -64,6 +64,7 @@ a {
   align-items: center;
   padding-top: 20px;
   background-color: #040468;
+  align-items: flex-end;
 }
 
 form {
@@ -98,7 +99,7 @@ form .btn-buscar {
 }
 form .label {
   color: #ebe8e8;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .column {
