@@ -12,10 +12,18 @@ const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
-const selectStatus = document.getElementById("select-status")
-const selectGender = document.getElementById("select-gender")
+const selectStatus = document.getElementById("select-status").disabled = false;
+const selectGender = document.getElementById("select-gender").disabled = false;
 
 const selectOrden = document.getElementById("select-orden")
+
+const optionCharacters = getElementById("option-characters")
+const optionEpisodes = getElementById("option-episodes").disabled = false
+
+/* Seleccionar select de personaje o episodio
+Cuando haya un onchange
+Le agregas a los otros dos select disabled = true
+Solo si la opción elegida es "episodio"*/ 
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -93,6 +101,14 @@ formulario.onsubmit = (event) => {
     event.preventDefault();
 
 };
+
+selectBusqueda.onchange = ()=>{
+    if(optionEpisodes.value === "true"){
+        selectStatus.disabled = true
+        selectGender.disabled= true
+    }
+}
+
 
 botonBuscar.onclick = ()=>{
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
