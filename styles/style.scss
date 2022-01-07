@@ -9,7 +9,8 @@
     padding: 20px;
     .titulo{
     align-content:flex-start;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: $fuente-principal;
+    font-size: 36px;
     color: $color-texto-principal;
     }
     .contenedor-links-nav{
@@ -106,9 +107,19 @@ form{
 .seccion-paginado{
    @include flex-centrar;
    color: $color-texto-principal;
+   .page{
+       @include flex-centrar;
+       flex-direction: column;
+       margin: 5px;
+   }
+   .icono-left , .icono-right{
+    font-size: 38px; 
+   }
+
    .fa-angle-right, .fa-angle-left{
+    text-align: center; 
     color: $color-texto-principal;
-    width: 30px;
-    height: 30px;
-}
+    width: 60px;
+    height: 60px;
+    }
 }

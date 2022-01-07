@@ -17,13 +17,6 @@ const selectGender = document.getElementById("select-gender")
 
 const selectOrden = document.getElementById("select-orden")
 
-//const optionCharacters = getElementById("option-characters");
-//const optionEpisodes = getElementById("option-episodes")
-
-/* Seleccionar select de personaje o episodio
-Cuando haya un onchange
-Le agregas a los otros dos select disabled = true
-Solo si la opción elegida es "episodio"*/ 
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -62,13 +55,16 @@ linkLocations.onclick = (e)=>{
     mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
     todasLasUbicaciones()
 }
-
+//Paginado
+let paginaActual = 1
+let ultimaPagina = 0
 
 //todos los personajes //
 const todosLosPersonajes = ()=>{
-    fetch(`${baseUrl}character`)
+    fetch(`${baseUrl}character?page=${paginaActual}`)
     .then(res => res.json())
     .then(data =>{
+        ultimaPagina = data.info.pages
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
         ordenarAZ (data.results, selectOrden.value)
@@ -77,7 +73,34 @@ const todosLosPersonajes = ()=>{
 }
 
 todosLosPersonajes()
+////// PAGINADO ////
 
+const pagePrev = document.getElementById("page-prev");
+const pageNext = document.getElementById("page-next")
+
+
+//se van a mostrar la prox page en mostrarPersonajeEnHTML
+
+
+// https://rickandmortyapi.com/api/character/?page={paginaActual}
+//data.info.pages El total de las paginas
+//data.info.next siguiente
+//data.info.prev anterior
+pageNext.onclick = () => {
+    console.log("click",pageNext)
+    todosLosPersonajes()
+        paginaActual++
+    
+  
+
+  if (paginaActual === ultimaPagina) {
+    next.disabled = true
+  }
+    // ejecutar la funcion de busqueda
+    // pero sumandole 1 a la pagina
+    // paginaActual = paginaActual + 1
+    
+}    
 ///todos los episodios///
 const todosLosEpisodios = ()=>{
     fetch(`${baseUrl}episode`)
@@ -345,4 +368,5 @@ const mostrarOrdenado = (array)=>{
     tarjetaPersonaje.innerHTML = html
 }
 
-////// PAGINADO ////
+
+

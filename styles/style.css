@@ -6,6 +6,7 @@
 
 body {
   background-color: #040468;
+  font-family: "Fuzzy Bubbles", cursive;
 }
 
 ul {
@@ -24,7 +25,8 @@ a {
 }
 .nav-bar .titulo {
   align-content: flex-start;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Shizuru", cursive;
+  font-size: 36px;
   color: #ebe8e8;
 }
 .nav-bar .contenedor-links-nav {
@@ -150,10 +152,22 @@ form .label {
   align-items: center;
   color: #ebe8e8;
 }
+.seccion-paginado .page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
+}
+.seccion-paginado .icono-left, .seccion-paginado .icono-right {
+  font-size: 38px;
+}
 .seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left {
+  text-align: center;
   color: #ebe8e8;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */
