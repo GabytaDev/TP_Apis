@@ -161,7 +161,10 @@ form .label {
   margin: 5px;
 }
 .seccion-paginado .icono-left, .seccion-paginado .icono-right {
+  background-color: transparent;
+  border: none;
   font-size: 38px;
+  cursor: pointer;
 }
 .seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left {
   text-align: center;

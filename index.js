@@ -55,52 +55,47 @@ linkLocations.onclick = (e)=>{
     mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
     todasLasUbicaciones()
 }
-//Paginado
-let paginaActual = 1
-let ultimaPagina = 0
+
 
 //todos los personajes //
 const todosLosPersonajes = ()=>{
-    fetch(`${baseUrl}character?page=${paginaActual}`)
+    fetch(`${baseUrl}character`)
     .then(res => res.json())
     .then(data =>{
         ultimaPagina = data.info.pages
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
         ordenarAZ (data.results, selectOrden.value)
-      
+        
     })
 }
 
 todosLosPersonajes()
-////// PAGINADO ////
 
+////// PAGINADO ////
+let paginaActual = 1
+let ultimaPagina = 0
 const pagePrev = document.getElementById("page-prev");
 const pageNext = document.getElementById("page-next")
 
-
-//se van a mostrar la prox page en mostrarPersonajeEnHTML
-
-
-// https://rickandmortyapi.com/api/character/?page={paginaActual}
-//data.info.pages El total de las paginas
-//data.info.next siguiente
-//data.info.prev anterior
 pageNext.onclick = () => {
-    console.log("click",pageNext)
-    todosLosPersonajes()
-        paginaActual++
-    
-  
+    paginaActual++
+    fetch(`${baseUrl}character?page=${paginaActual}`)
+    .then(res => res.json())
+    .then(data =>{
+       console.log("pagina actual",paginaActual)
+       mostrarPersonajeEnHTML(data.results)
+       mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
 
-  if (paginaActual === ultimaPagina) {
-    next.disabled = true
-  }
-    // ejecutar la funcion de busqueda
-    // pero sumandole 1 a la pagina
-    // paginaActual = paginaActual + 1
-    
+       mostrarEpisodioEnHTML(data.results)
+       mostrarTarjetas(arrayTarjetas,tarjetaEpisodios) 
+
+       mostrarUbicacionEnHTML(data.results)
+       mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
+    })
 }    
+
+
 ///todos los episodios///
 const todosLosEpisodios = ()=>{
     fetch(`${baseUrl}episode`)
