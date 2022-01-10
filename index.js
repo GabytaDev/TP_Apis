@@ -16,7 +16,12 @@ const selectStatus = document.getElementById("select-status")
 const selectGender = document.getElementById("select-gender")
 
 const selectOrden = document.getElementById("select-orden")
+////// PAGINADO ////
 
+const pagePrev = document.getElementById("page-prev")
+const pageNext = document.getElementById("page-next")
+let paginaActual = 1
+let ultimaPagina = 0
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -57,9 +62,9 @@ linkLocations.onclick = (e)=>{
 }
 
 
-//todos los personajes //
+//Fetch todos los personajes //
 const todosLosPersonajes = ()=>{
-    fetch(`${baseUrl}character`)
+    fetch(`${baseUrl}character?page=${paginaActual}`)
     .then(res => res.json())
     .then(data =>{
         ultimaPagina = data.info.pages
@@ -72,42 +77,20 @@ const todosLosPersonajes = ()=>{
 
 todosLosPersonajes()
 
-////// PAGINADO ////
-let paginaActual = 1
-let ultimaPagina = 0
-const pagePrev = document.getElementById("page-prev");
-const pageNext = document.getElementById("page-next")
-
-pageNext.onclick = () => {
-    paginaActual++
-    fetch(`${baseUrl}character?page=${paginaActual}`)
-    .then(res => res.json())
-    .then(data =>{
-       console.log("pagina actual",paginaActual)
-       mostrarPersonajeEnHTML(data.results)
-       mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
-
-       mostrarEpisodioEnHTML(data.results)
-       mostrarTarjetas(arrayTarjetas,tarjetaEpisodios) 
-
-       mostrarUbicacionEnHTML(data.results)
-       mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
-    })
-}    
-
-
-///todos los episodios///
+///Fetch todos los episodios///
 const todosLosEpisodios = ()=>{
-    fetch(`${baseUrl}episode`)
+    fetch(`${baseUrl}episode?page=${paginaActual}`)
     .then((res)=> res.json())
     .then((data)=>{
         mostrarEpisodioEnHTML(data.results)
+        
     })
+    
 }
 
-//todas las ubicaciones //
+//Fetch todas las ubicaciones //
 const todasLasUbicaciones = ()=>{
-    fetch(`${baseUrl}/location`)
+    fetch(`${baseUrl}/location?page=${paginaActual}`)
     .then((res)=> res.json())
     .then((data)=>{
         mostrarUbicacionEnHTML(data.results)
@@ -147,7 +130,11 @@ const mostrarPersonajeEnHTML = (array) => {
      </div>`
     },"")
     tarjetaPersonaje.innerHTML = html
-   detalleDePersonaje()
+    mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
+   detalleDePersonaje();
+
+   pageNext.onclick = () => {
+    paginaActual++ }
    
 }  
 
@@ -165,6 +152,7 @@ const mostrarEpisodioEnHTML = (array) => {
 
     tarjetaEpisodios.innerHTML = html  
   detalleDeEpisodio()
+  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)
 } 
 
 ///UBICACIONE EN HTML///
@@ -178,6 +166,7 @@ const mostrarUbicacionEnHTML = (array) => {
     },"")
     tarjetaUbicaciones.innerHTML = html   
     detalleUbicaciones()  
+    mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
 } 
 ///BUSCADOR ////
 
