@@ -18,8 +18,10 @@ const selectGender = document.getElementById("select-gender")
 const selectOrden = document.getElementById("select-orden")
 ////// PAGINADO ////
 
-const pagePrev = document.getElementById("page-prev")
+const pagePrev = document.querySelector("#page-prev")
 const pageNext = document.querySelector("#page-next")
+const iconoRight = document.querySelector(".fa-angle-right")
+const iconoLeft = document.querySelector(".fa-angle-left")
 let paginaActual = 1
 let ultimaPagina = 0
 
@@ -353,6 +355,24 @@ const mostrarOrdenado = (array)=>{
 
 pageNext.onclick = ()=>{
     paginaActual = paginaActual + 1
+    if (paginaActual === ultimaPagina) {
+        console.log(paginaActual,"pagina actual next")
+        iconoRight.style.color = "red"
+        pageNext.disabled = true
+    }else{
+        iconoLeft.style.color ="#ebe8e8"
+    }
     todosLosPersonajes() 
-  
 }
+
+pagePrev.onclick = () => {
+    paginaActual = paginaActual -1 
+   
+    if (paginaActual === 1) {
+        console.log(paginaActual, "pagina actual prev")
+        pagePrev.disabled = true
+        iconoLeft.style.color = "red"
+    }
+    todosLosPersonajes()
+}
+
