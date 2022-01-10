@@ -19,7 +19,7 @@ const selectOrden = document.getElementById("select-orden")
 ////// PAGINADO ////
 
 const pagePrev = document.getElementById("page-prev")
-const pageNext = document.getElementById("page-next")
+const pageNext = document.querySelector("#page-next")
 let paginaActual = 1
 let ultimaPagina = 0
 
@@ -133,8 +133,6 @@ const mostrarPersonajeEnHTML = (array) => {
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
    detalleDePersonaje();
 
-   pageNext.onclick = () => {
-    paginaActual++ }
    
 }  
 
@@ -353,4 +351,8 @@ const mostrarOrdenado = (array)=>{
 }
 
 
-
+pageNext.onclick = ()=>{
+    paginaActual = paginaActual + 1
+    todosLosPersonajes() 
+  
+}
