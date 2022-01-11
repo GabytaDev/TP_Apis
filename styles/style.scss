@@ -9,7 +9,8 @@
     padding: 20px;
     .titulo{
     align-content:flex-start;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: $fuente-principal;
+    font-size: 36px;
     color: $color-texto-principal;
     }
     .contenedor-links-nav{
@@ -100,8 +101,28 @@ form{
      cursor: pointer;
 }
 
-
-
 .ocultar{
     display: none;
+}
+.seccion-paginado{
+   @include flex-centrar;
+   color: $color-texto-principal;
+   .page{
+       @include flex-centrar;
+       flex-direction: column;
+       margin: 5px;
+   }
+   .icono-left , .icono-right{
+       background-color: transparent;
+       border: none;
+       font-size: 38px; 
+       cursor: pointer;
+   }
+
+   .fa-angle-right, .fa-angle-left{
+    text-align: center; 
+    color: $color-texto-principal;
+    width: 60px;
+    height: 60px;
+    }
 }

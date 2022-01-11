@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series finder Rick and Morty</title>
+    <script src="https://kit.fontawesome.com/037e0b5327.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
     <header>
         <nav class="nav-bar">
-            <div><h1 class="titulo">Series finder Rick and Morty</h1></div>
+            <div><h1 class="titulo">Series finder</h1></div>
             <div>
                 <ul class="contenedor-links-nav">
                     <div class="link" id="link-characters"><li><a href="#characters">Characters</a></li></div>
@@ -77,6 +82,17 @@
         <section class="contenedor-tarjetas-ubicaciones">
             <div class="tarjeta-ubicaciones"></div>
         </section>
+
+        <div class="seccion-paginado">
+            <div class="page">
+                <p>Prev</p>
+                <button  id="page-prev" class="icono-left"><i class="fas fa-angle-left"></i></button>
+            </div>
+           <div class="page">
+            <p>Next</p>
+            <button id="page-next" class="icono-right"><i class="fas fa-angle-right"></i></button>
+           </div>
+        </div>
 
     </main>
 

@@ -16,14 +16,14 @@ const selectStatus = document.getElementById("select-status")
 const selectGender = document.getElementById("select-gender")
 
 const selectOrden = document.getElementById("select-orden")
-
-//const optionCharacters = getElementById("option-characters");
-//const optionEpisodes = getElementById("option-episodes")
-
-/* Seleccionar select de personaje o episodio
-Cuando haya un onchange
-Le agregas a los otros dos select disabled = true
-Solo si la opción elegida es "episodio"*/ 
+////// PAGINADO ////
+const seccionPaginado = document.querySelector(".seccion-paginado")
+const pagePrev = document.querySelector("#page-prev")
+const pageNext = document.querySelector("#page-next")
+const iconoRight = document.querySelector(".fa-angle-right")
+const iconoLeft = document.querySelector(".fa-angle-left")
+let paginaActual = 1
+let ultimaPagina = 0
 
 const baseUrl = "https://rickandmortyapi.com/api/"
 
@@ -48,8 +48,7 @@ const mostrarTarjetas = (array, tarjeta)=>{
 linkCharacters.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
-    todosLosPersonajes()
-    
+    todosLosPersonajes()   
 }
 
 linkEpisodes.onclick = (e)=>{
@@ -64,32 +63,34 @@ linkLocations.onclick = (e)=>{
 }
 
 
-//todos los personajes //
+//Fetch todos los personajes //
 const todosLosPersonajes = ()=>{
-    fetch(`${baseUrl}character`)
+    fetch(`${baseUrl}character?page=${paginaActual}`)
     .then(res => res.json())
     .then(data =>{
+        ultimaPagina = data.info.pages
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
-        ordenarAZ (data.results, selectOrden.value)
-      
+       ordenarAZ (data.results, selectOrden.value)
+        
     })
 }
 
 todosLosPersonajes()
 
-///todos los episodios///
+///Fetch todos los episodios///
 const todosLosEpisodios = ()=>{
-    fetch(`${baseUrl}episode`)
+    fetch(`${baseUrl}episode?page=${paginaActual}`)
     .then((res)=> res.json())
     .then((data)=>{
         mostrarEpisodioEnHTML(data.results)
     })
+    
 }
 
-//todas las ubicaciones //
+//Fetch todas las ubicaciones //
 const todasLasUbicaciones = ()=>{
-    fetch(`${baseUrl}/location`)
+    fetch(`${baseUrl}/location?page=${paginaActual}`)
     .then((res)=> res.json())
     .then((data)=>{
         mostrarUbicacionEnHTML(data.results)
@@ -129,7 +130,8 @@ const mostrarPersonajeEnHTML = (array) => {
      </div>`
     },"")
     tarjetaPersonaje.innerHTML = html
-   detalleDePersonaje()
+    mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
+   detalleDePersonaje(); 
    
 }  
 
@@ -147,6 +149,8 @@ const mostrarEpisodioEnHTML = (array) => {
 
     tarjetaEpisodios.innerHTML = html  
   detalleDeEpisodio()
+  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)
+  
 } 
 
 ///UBICACIONE EN HTML///
@@ -160,6 +164,7 @@ const mostrarUbicacionEnHTML = (array) => {
     },"")
     tarjetaUbicaciones.innerHTML = html   
     detalleUbicaciones()  
+    mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
 } 
 ///BUSCADOR ////
 
@@ -170,6 +175,7 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     tarjetaPersonaje.classList.remove("ocultar")
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
+    
    } else if(tipoDeBusqueda === "episode"){
     buscarEpisodio(parametroDeBusqueda)
     tarjetaEpisodios.classList.remove("ocultar")
@@ -299,8 +305,6 @@ const mostrarDetalleUbicacionHTML = (data)=>{
   </div>` 
 }
 //ordenar A/Z
-
-
 selectOrden.onchange = ()=>{
     todosLosPersonajes()
 }
@@ -344,3 +348,28 @@ const mostrarOrdenado = (array)=>{
     },"")
     tarjetaPersonaje.innerHTML = html
 }
+
+
+pageNext.onclick = ()=>{
+    paginaActual = paginaActual + 1
+    if (paginaActual === ultimaPagina) {
+        iconoRight.style.color = "black"
+        pageNext.disabled = true
+    }else{
+        iconoLeft.style.color ="#ebe8e8"
+    }
+    
+    todosLosPersonajes() 
+}
+
+pagePrev.onclick = () => {
+    paginaActual = paginaActual -1 
+    if (paginaActual === 1) {
+        pagePrev.disabled = true
+        iconoLeft.style.color = "black"
+    }else{
+        iconoRight.style.color = "#ebe8e8"
+    }
+    todosLosPersonajes()
+}
+
