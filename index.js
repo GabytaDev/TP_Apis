@@ -17,7 +17,7 @@ const selectGender = document.getElementById("select-gender")
 
 const selectOrden = document.getElementById("select-orden")
 ////// PAGINADO ////
-
+const seccionPaginado = document.querySelector(".seccion-paginado")
 const pagePrev = document.querySelector("#page-prev")
 const pageNext = document.querySelector("#page-next")
 const iconoRight = document.querySelector(".fa-angle-right")
@@ -48,8 +48,7 @@ const mostrarTarjetas = (array, tarjeta)=>{
 linkCharacters.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
-    todosLosPersonajes()
-    
+    todosLosPersonajes()   
 }
 
 linkEpisodes.onclick = (e)=>{
@@ -72,7 +71,7 @@ const todosLosPersonajes = ()=>{
         ultimaPagina = data.info.pages
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
-        ordenarAZ (data.results, selectOrden.value)
+       ordenarAZ (data.results, selectOrden.value)
         
     })
 }
@@ -85,7 +84,6 @@ const todosLosEpisodios = ()=>{
     .then((res)=> res.json())
     .then((data)=>{
         mostrarEpisodioEnHTML(data.results)
-        
     })
     
 }
@@ -133,8 +131,7 @@ const mostrarPersonajeEnHTML = (array) => {
     },"")
     tarjetaPersonaje.innerHTML = html
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
-   detalleDePersonaje();
-
+   detalleDePersonaje(); 
    
 }  
 
@@ -153,6 +150,7 @@ const mostrarEpisodioEnHTML = (array) => {
     tarjetaEpisodios.innerHTML = html  
   detalleDeEpisodio()
   mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)
+  
 } 
 
 ///UBICACIONE EN HTML///
@@ -177,6 +175,7 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     tarjetaPersonaje.classList.remove("ocultar")
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
+    
    } else if(tipoDeBusqueda === "episode"){
     buscarEpisodio(parametroDeBusqueda)
     tarjetaEpisodios.classList.remove("ocultar")
@@ -306,8 +305,6 @@ const mostrarDetalleUbicacionHTML = (data)=>{
   </div>` 
 }
 //ordenar A/Z
-
-
 selectOrden.onchange = ()=>{
     todosLosPersonajes()
 }
@@ -356,22 +353,22 @@ const mostrarOrdenado = (array)=>{
 pageNext.onclick = ()=>{
     paginaActual = paginaActual + 1
     if (paginaActual === ultimaPagina) {
-        console.log(paginaActual,"pagina actual next")
-        iconoRight.style.color = "red"
+        iconoRight.style.color = "black"
         pageNext.disabled = true
     }else{
         iconoLeft.style.color ="#ebe8e8"
     }
+    
     todosLosPersonajes() 
 }
 
 pagePrev.onclick = () => {
     paginaActual = paginaActual -1 
-   
     if (paginaActual === 1) {
-        console.log(paginaActual, "pagina actual prev")
         pagePrev.disabled = true
-        iconoLeft.style.color = "red"
+        iconoLeft.style.color = "black"
+    }else{
+        iconoRight.style.color = "#ebe8e8"
     }
     todosLosPersonajes()
 }
