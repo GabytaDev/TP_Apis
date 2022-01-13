@@ -304,5 +304,14 @@ a {
     width: 150px;
   }
 }
+@media screen and (max-width: 500px) {
+  .nav-bar .titulo {
+    font-size: 1.1em;
+  }
+
+  .nav-bar .contenedor-links-nav a {
+    font-size: 1em;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
