@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <nav class="nav-bar">
             <div><h1 class="titulo">Series finder</h1></div>
             <div>
@@ -25,21 +25,26 @@
                     <div class="link" id="link-locations"><li><a href="#locations">Locations</a></li></div> 
                 </ul>
             </div>
-           
         </nav>
     </header>
     <div class="contenedor-imagen-fondo">
-        <img src="./images/58f37747a4fa116215a92414.png" alt="image-rick-and-morty">
+        <div class="contenedor-img-personaje">
+        <img src="./images/58f37747a4fa116215a92414.png" alt="image-rick-and-morty" class="imagen-personajes">
+        </div>
+        <div class="contenedor-logo">
         <img src="./images/58f37720a4fa116215a9240f.png" alt="logo-rick-and-morty"class="logo">
+        </div>
     </div>
     <main>
         <section class="section-busqueda">
-            <form id="formulario">
-                <input type="text" value="" id="input-buscador" placeholder="Search" class="input"/>
-                <select name="" id="select-busqueda" class="select">
-                    <option value="character" id="option-characters">Characters</option>
-                    <option value="episode" id="option-episodes">Episodes</option>
-                </select>
+            <form id="formulario" class="form">
+                <div class="seccion-top-form">
+                    <input type="text" value="" id="input-buscador" placeholder="Search" class="input"/>
+                    <select name="" id="select-busqueda" class="select">
+                        <option value="character" id="option-characters">Characters</option>
+                        <option value="episode" id="option-episodes">Episodes</option>
+                    </select>
+                </div>
                 <div class="column">
                     <label for="status" class="label">Status</label>
                     <select name="status" id="select-status" class="select">        
@@ -61,7 +66,7 @@
                 
                 <button id="buscar" class="btn-buscar">Search</button>
             </form>
-            <form class="form-ordenar">
+            <form class="form form-ordenar">
                
                 <select id="select-orden" class="select">
                     <option value="">Ordenar por</option>

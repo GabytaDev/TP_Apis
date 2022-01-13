@@ -25,6 +25,12 @@ const iconoLeft = document.querySelector(".fa-angle-left")
 let paginaActual = 1
 let ultimaPagina = 0
 
+////MENU MOBILE///
+const botonAbrirMenu = document.getElementById("boton-abrir-menu")
+const botonCerrarMenu = document.getElementById("boton-cerrar-menu")
+const contenedorLinksNav = document.querySelector(".contenedor-links-nav")
+
+
 const baseUrl = "https://rickandmortyapi.com/api/"
 
 //vista tarjetas///
@@ -372,4 +378,8 @@ pagePrev.onclick = () => {
     }
     todosLosPersonajes()
 }
+
+////responsibe///
+
+
 
