@@ -230,6 +230,9 @@
             }
         }
     }
+    .card{
+        font-size: 0.8em; 
+    }
     .card img{
         width:250px;
 
@@ -247,9 +250,16 @@
     .card{
         width: auto;
         text-align: center;
+        flex-wrap: wrap;
+        font-size: 0.5em;
     }
     .card img{
         width: 150px;
     }
+   
+    
+}
+
+@media screen and (max-width: 500px) {
     
 }

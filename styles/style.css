@@ -276,6 +276,10 @@ a {
     display: flex;
   }
 
+  .card {
+    font-size: 0.8em;
+  }
+
   .card img {
     width: 250px;
   }
@@ -292,6 +296,8 @@ a {
   .card {
     width: auto;
     text-align: center;
+    flex-wrap: wrap;
+    font-size: 0.5em;
   }
 
   .card img {
