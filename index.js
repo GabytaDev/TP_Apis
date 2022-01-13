@@ -22,6 +22,11 @@ const pagePrev = document.querySelector("#page-prev")
 const pageNext = document.querySelector("#page-next")
 const iconoRight = document.querySelector(".fa-angle-right")
 const iconoLeft = document.querySelector(".fa-angle-left")
+const seccionPaginadoEpisodios = document.querySelector(".seccion-paginado-episodios")
+const pagePrevEpisodios = document.querySelector(".page-prev-episodios")
+const pageNextEpisodios = document.querySelector(".page-next-episodios")
+
+
 let paginaActual = 1
 let ultimaPagina = 0
 
@@ -51,13 +56,19 @@ const mostrarTarjetas = (array, tarjeta)=>{
 linkCharacters.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
+    seccionPaginado.style.display="flex"
     todosLosPersonajes()   
+   
+    
 }
 
 linkEpisodes.onclick = (e)=>{
     e.preventDefault()
-    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)   
+    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)  
+    seccionPaginadoEpisodios.style.display="flex" 
+    seccionPaginado.style.display="none"
     todosLosEpisodios()
+   
 }
 linkLocations.onclick = (e)=>{
     e.preventDefault()
@@ -75,11 +86,11 @@ const todosLosPersonajes = ()=>{
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
        ordenarAZ (data.results, selectOrden.value)
-        
     })
 }
 
 todosLosPersonajes()
+
 
 ///Fetch todos los episodios///
 const todosLosEpisodios = ()=>{
@@ -134,6 +145,7 @@ const mostrarPersonajeEnHTML = (array) => {
     },"")
     tarjetaPersonaje.innerHTML = html
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
+    seccionPaginado.style.display="flex"
    detalleDePersonaje(); 
    
 }  
@@ -152,8 +164,8 @@ const mostrarEpisodioEnHTML = (array) => {
 
     tarjetaEpisodios.innerHTML = html  
   detalleDeEpisodio()
-  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)
-  
+  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios);
+  seccionPaginadoEpisodios.style.display="flex"
 } 
 
 ///UBICACIONE EN HTML///
@@ -274,6 +286,7 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
+  
 }
 
 ///click tarjeta ubicaciones///
@@ -375,8 +388,27 @@ pagePrev.onclick = () => {
     }
     todosLosPersonajes()
 }
-
-
-
-
-
+//Paginado Episodios
+/*
+pageNextEpisodios.onclick = () => {
+    console.log("click", pageNextEpisodios)
+    paginaActual = paginaActual + 1
+    if (paginaActual === ultimaPagina) {
+        iconoRight.style.color = "black"
+        pageNextEpisodios.disabled = true
+    }else{
+        iconoLeft.style.color ="#ebe8e8"
+    }
+    todosLosEpisodios()
+}
+pagePrevEpisodios.onclick = ()=> {
+    paginaActual = paginaActual -1 
+    if (paginaActual === 1) {
+        pagePrevEpisodios.disabled = true
+        iconoLeft.style.color = "black"
+    }else{
+        iconoRight.style.color = "#ebe8e8"
+    }
+    todosLosEpisodios()
+}
+*/

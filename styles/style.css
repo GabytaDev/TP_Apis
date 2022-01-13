@@ -173,14 +173,15 @@ a {
   display: none;
 }
 
-.seccion-paginado {
+.seccion-paginado, .seccion-paginado-episodios {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #ebe8e8;
+  display: none;
 }
-.seccion-paginado .page {
+.seccion-paginado .page, .seccion-paginado-episodios .page {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -188,13 +189,13 @@ a {
   flex-direction: column;
   margin: 5px;
 }
-.seccion-paginado .icono-left, .seccion-paginado .icono-right {
+.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right {
   background-color: transparent;
   border: none;
   font-size: 38px;
   cursor: pointer;
 }
-.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left {
+.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left, .seccion-paginado-episodios .fa-angle-right, .seccion-paginado-episodios .fa-angle-left {
   text-align: center;
   color: #ebe8e8;
   width: 60px;

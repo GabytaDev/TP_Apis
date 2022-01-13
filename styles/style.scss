@@ -131,9 +131,10 @@
 .ocultar{
     display: none;
 }
-.seccion-paginado{
+.seccion-paginado, .seccion-paginado-episodios{
    @include flex-centrar;
    color: $color-texto-principal;
+   display: none;
    .page{
        @include flex-centrar;
        flex-direction: column;
@@ -153,6 +154,8 @@
     height: 60px;
     }
 }
+
+
 //// MEDIA QUERY///
 
 @media screen and (max-width: 1200px) {
