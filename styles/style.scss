@@ -102,14 +102,21 @@
     flex-direction: column;
 }
 
-.contenedor-tarjetas-personaje{
+.contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
     width: auto;
     height: auto;  
 }
-.tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
-    @include tarjeta
-} 
 
+
+.tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
+    @include tarjeta;
+} 
+.tarjeta-ubicaciones, .tarjeta-episodios{
+    @include tarjeta;
+    .card img{
+        width: 200px;
+    } 
+}
 .card{
      margin: 20px;
      padding: 20px;

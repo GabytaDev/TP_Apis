@@ -134,7 +134,7 @@ a {
   flex-direction: column;
 }
 
-.contenedor-tarjetas-personaje {
+.contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
   width: auto;
   height: auto;
 }
@@ -145,6 +145,17 @@ a {
   justify-content: center;
   background-color: #040468;
   color: #2f2f2f;
+}
+
+.tarjeta-ubicaciones, .tarjeta-episodios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #040468;
+  color: #2f2f2f;
+}
+.tarjeta-ubicaciones .card img, .tarjeta-episodios .card img {
+  width: 200px;
 }
 
 .card {
