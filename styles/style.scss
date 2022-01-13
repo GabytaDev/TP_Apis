@@ -182,7 +182,6 @@
         }
     }   
    
-   
    .section-busqueda{
     @include flex-centrar($direccion: column, $content: center);
     align-content: center;
@@ -204,5 +203,41 @@
 }
 
 @media screen and (max-width: 700px) {
-    //arreglar tamaño de logo
+    .contenedor-logo{
+        width: 80%;
+        height: 80%;
+        .logo   {
+        width: 100%;
+        }
+    } 
+    .section-busqueda{
+        @include flex-centrar($direccion: column, $content: center);
+        align-content: center;
+        flex-wrap: wrap;
+        .form{
+          .input{
+              width: 90%;
+              
+          }
+          .select{
+            width: 90%;
+           
+          }
+          .btn-buscar{
+            width: 90%;
+            
+            font-size: medium;
+            padding: 5px;
+          }
+        }
+        .seccion-top-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            .seccion-boton-buscar{
+            display: flex;
+            }
+        }
+    }
+    
 }

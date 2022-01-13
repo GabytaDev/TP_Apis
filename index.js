@@ -379,7 +379,7 @@ pagePrev.onclick = () => {
     todosLosPersonajes()
 }
 
-////responsibe///
+
 
 
 

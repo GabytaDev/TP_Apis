@@ -255,5 +255,42 @@ a {
     width: auto;
   }
 }
+@media screen and (max-width: 700px) {
+  .contenedor-logo {
+    width: 80%;
+    height: 80%;
+  }
+  .contenedor-logo .logo {
+    width: 100%;
+  }
+
+  .section-busqueda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .section-busqueda .form .input {
+    width: 90%;
+  }
+  .section-busqueda .form .select {
+    width: 90%;
+  }
+  .section-busqueda .form .btn-buscar {
+    width: 90%;
+    font-size: medium;
+    padding: 5px;
+  }
+  .section-busqueda .seccion-top-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-busqueda .seccion-top-form .seccion-boton-buscar {
+    display: flex;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
