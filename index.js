@@ -25,10 +25,7 @@ const iconoLeft = document.querySelector(".fa-angle-left")
 let paginaActual = 1
 let ultimaPagina = 0
 
-////MENU MOBILE///
-const botonAbrirMenu = document.getElementById("boton-abrir-menu")
-const botonCerrarMenu = document.getElementById("boton-cerrar-menu")
-const contenedorLinksNav = document.querySelector(".contenedor-links-nav")
+
 
 
 const baseUrl = "https://rickandmortyapi.com/api/"
@@ -149,7 +146,7 @@ const mostrarEpisodioEnHTML = (array) => {
         `<div class="card" data-id=${curr.id}>
     <h3>Name: ${curr.name}</h3>
     <p>Episode: ${curr.episode}</p>
-    <link rel="stylesheet" href="">
+    <img src="./images/58f37726a4fa116215a92410.png">
     </div>`
       },"")
 
@@ -165,7 +162,7 @@ const mostrarUbicacionEnHTML = (array) => {
         return acc = acc +  `<div class="card" data-id=${curr.id}>
         <h3>Location: ${curr.name}</h3>
         <p>Type: ${curr.type}</p>
-        <link rel="stylesheet" href="">
+        <img src="./images/58f37719a4fa116215a9240e.png">
         </div>`  
     },"")
     tarjetaUbicaciones.innerHTML = html   
