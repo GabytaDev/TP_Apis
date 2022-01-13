@@ -1,10 +1,16 @@
 @import "reset";
 @import "mixins";
 @import "variables";
-
+.header{
+    display: flex;
+    width: auto;
+    align-content: center;
+    justify-content: center;
+    background-color: $color-background-principal;
+}
 .nav-bar{
     display: flex;
-    background-color: $color-background-principal;
+    width: 100%;
     justify-content:space-around;
     padding: 20px;
     .titulo{
@@ -36,14 +42,30 @@
 
 }
 
+.contenedor-img-personaje{
+    width:500px;
+    height: 400px;
+    .imagen-personajes{
+        width: 100%;
+        height: 100%;
+    }
+}
+.contenedor-logo{
+    width: 640px;
+    height: 248px;
+    .logo{
+        width: auto;
+        height: auto;
+    }
+}
 .contenedor-imagen-fondo{
     display: flex; 
     align-content: center;
     justify-content: center;
-    height: 400px;
-    width: 100%;
     overflow: hidden; 
     background-image: url(../images/fondo-espacio.png);  
+    background-size:auto;
+    
 }
 
 .section-busqueda{
@@ -53,7 +75,7 @@
     align-items: flex-end;
 }
 
-form{
+.form{
  @include flex-centrar($direccion: row,$content:space-around);
  align-items: flex-end;
     .input{
@@ -84,12 +106,10 @@ form{
     width: auto;
     height: auto;  
 }
-.tarjeta-personaje,.tarjeta-ubicaciones {
+.tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
     @include tarjeta
 } 
-.tarjeta-episodios{
-    @include tarjeta
-}
+
 .card{
      margin: 20px;
      padding: 20px;
@@ -125,4 +145,127 @@ form{
     width: 60px;
     height: 60px;
     }
+}
+//// MEDIA QUERY///
+
+@media screen and (max-width: 1200px) {
+    .header{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+   .nav-bar{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    align-content: center;
+    align-items: center;
+       .titulo{
+        margin: 5px 0 10px 0;
+        padding: 0 5px 0 5px;
+       }
+   }
+   .contenedor-img-personaje{
+    display: none;
+       
+    }
+    .contenedor-logo{
+        width: 640px;
+        height: 248px;
+        .logo   {
+        width: auto;
+        height: auto;
+        }
+    }   
+   
+   .section-busqueda{
+    @include flex-centrar($direccion: column, $content: center);
+    align-content: center;
+    flex-wrap: wrap;
+    .seccion-top-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+   }
+   
+   .input{
+    width:auto;
+    flex-wrap: wrap;
+    }
+    .btn-buscar{
+      width: auto;  
+    }
+}
+@media screen and (max-width:900px) {
+    .section-busqueda{
+    @include flex-centrar($direccion: column, $content: center);
+    align-content: center;
+    flex-wrap: wrap;
+
+    .form{
+      .input{
+          width: 90%;
+          
+      }
+      .select{
+        width: 90%;
+       
+      }
+      .btn-buscar{
+        width: 90%;
+        
+        font-size: medium;
+        padding: 5px;
+      }
+    }
+    .seccion-top-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            .seccion-boton-buscar{
+            display: flex;
+            }
+        }
+    }
+    .card{
+        font-size: 0.8em; 
+    }
+    .card img{
+        width:250px;
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contenedor-logo{
+        width: 80%;
+        height: 80%;
+        .logo   {
+        width: 100%;
+        }
+    } 
+    .card{
+        width: auto;
+        text-align: center;
+        flex-wrap: wrap;
+        font-size: 0.5em;
+    }
+    .card img{
+        width: 150px;
+    }
+   
+    
+}
+
+@media screen and (max-width: 500px) {
+    .nav-bar .titulo{
+        font-size: 1.1em;
+    }
+    .nav-bar .contenedor-links-nav a {
+        font-size: 1em;
+    }
+    
 }

@@ -3,6 +3,7 @@
     flex-direction: $direccion;
     justify-content: $content;
     align-items: center;
+
 }
 
 @mixin btn ($backgroundColor:$color-boton-background ){
