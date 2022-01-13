@@ -139,15 +139,7 @@ a {
   height: auto;
 }
 
-.tarjeta-personaje, .tarjeta-ubicaciones {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #040468;
-  color: #2f2f2f;
-}
-
-.tarjeta-episodios {
+.tarjeta-personaje, .tarjeta-ubicaciones, .tarjeta-episodios {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -255,15 +247,7 @@ a {
     width: auto;
   }
 }
-@media screen and (max-width: 700px) {
-  .contenedor-logo {
-    width: 80%;
-    height: 80%;
-  }
-  .contenedor-logo .logo {
-    width: 100%;
-  }
-
+@media screen and (max-width: 900px) {
   .section-busqueda {
     display: flex;
     flex-direction: column;
@@ -290,6 +274,28 @@ a {
   }
   .section-busqueda .seccion-top-form .seccion-boton-buscar {
     display: flex;
+  }
+
+  .card img {
+    width: 250px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .contenedor-logo {
+    width: 80%;
+    height: 80%;
+  }
+  .contenedor-logo .logo {
+    width: 100%;
+  }
+
+  .card {
+    width: auto;
+    text-align: center;
+  }
+
+  .card img {
+    width: 150px;
   }
 }
 

@@ -106,12 +106,10 @@
     width: auto;
     height: auto;  
 }
-.tarjeta-personaje,.tarjeta-ubicaciones {
+.tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
     @include tarjeta
 } 
-.tarjeta-episodios{
-    @include tarjeta
-}
+
 .card{
      margin: 20px;
      padding: 20px;
@@ -201,6 +199,42 @@
       width: auto;  
     }
 }
+@media screen and (max-width:900px) {
+    .section-busqueda{
+    @include flex-centrar($direccion: column, $content: center);
+    align-content: center;
+    flex-wrap: wrap;
+
+    .form{
+      .input{
+          width: 90%;
+          
+      }
+      .select{
+        width: 90%;
+       
+      }
+      .btn-buscar{
+        width: 90%;
+        
+        font-size: medium;
+        padding: 5px;
+      }
+    }
+    .seccion-top-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            .seccion-boton-buscar{
+            display: flex;
+            }
+        }
+    }
+    .card img{
+        width:250px;
+
+    }
+}
 
 @media screen and (max-width: 700px) {
     .contenedor-logo{
@@ -210,34 +244,12 @@
         width: 100%;
         }
     } 
-    .section-busqueda{
-        @include flex-centrar($direccion: column, $content: center);
-        align-content: center;
-        flex-wrap: wrap;
-        .form{
-          .input{
-              width: 90%;
-              
-          }
-          .select{
-            width: 90%;
-           
-          }
-          .btn-buscar{
-            width: 90%;
-            
-            font-size: medium;
-            padding: 5px;
-          }
-        }
-        .seccion-top-form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-            .seccion-boton-buscar{
-            display: flex;
-            }
-        }
+    .card{
+        width: auto;
+        text-align: center;
+    }
+    .card img{
+        width: 150px;
     }
     
 }
