@@ -267,6 +267,7 @@ const mostrarDetallePersonajeHTML = (data)=>{
     <p>Specie: ${data.species}</p>
     <p>Status: ${data.status}</p>
   </div>`
+  seccionPaginado.style.display="none"
 }
 
 ///click tarjeta episodio///
