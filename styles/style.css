@@ -147,6 +147,9 @@ a {
   color: #ebe8e8;
   padding: 10px;
   margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .icono-home .fa-home {
   color: #ebe8e8;

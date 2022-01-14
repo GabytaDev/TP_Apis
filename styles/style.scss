@@ -111,9 +111,13 @@
     color: $color-texto-principal;
     padding: 10px;
     margin: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     .fa-home{
         color: $color-texto-principal;
         font-size: 38px; 
+        
     }
 }
 
