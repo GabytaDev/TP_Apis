@@ -296,6 +296,7 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     `<div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Air Date: ${data.air_date}</p>
+    <img src="./images/58f37726a4fa116215a92410.png">
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
