@@ -106,7 +106,16 @@
     width: auto;
     height: auto;  
 }
-
+.icono-home{
+    @include flex-centrar($direccion: column, $content: center);
+    color: $color-texto-principal;
+    padding: 10px;
+    margin: 5px;
+    .fa-home{
+        color: $color-texto-principal;
+        font-size: 38px; 
+    }
+}
 
 .tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
     @include tarjeta;
@@ -174,7 +183,7 @@
     align-content: center;
     align-items: center;
        .titulo{
-        margin: 5px 0 10px 0;
+        margin: 0 0 20px 0;
         padding: 0 5px 0 5px;
        }
    }
