@@ -329,6 +329,7 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     `<div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Type: ${data.type}</p>
+    <img src="./images/58f37719a4fa116215a9240e.png">
     <p>Dimension: ${data.dimension}</p>
     <p>Created: ${data.created}</p>
   </div>` 
