@@ -300,7 +300,7 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
-  
+  seccionPaginadoEpisodios.style.display="none"
 }
 
 ///click tarjeta ubicaciones///
@@ -334,6 +334,7 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     <p>Dimension: ${data.dimension}</p>
     <p>Created: ${data.created}</p>
   </div>` 
+  seccionPaginadoUbicaciones.style.display="none"
 }
 //ordenar A/Z
 selectOrden.onchange = ()=>{
