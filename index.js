@@ -22,11 +22,18 @@ const pagePrev = document.querySelector("#page-prev")
 const pageNext = document.querySelector("#page-next")
 const iconoRight = document.querySelector(".fa-angle-right")
 const iconoLeft = document.querySelector(".fa-angle-left")
+
 const seccionPaginadoEpisodios = document.querySelector(".seccion-paginado-episodios")
 const pagePrevEpisodios = document.querySelector("#page-prev-episodios")
 const pageNextEpisodios = document.querySelector("#page-next-episodios")
 const iconoLeftEpisode = document.querySelector(".icono-left-episode")
 const iconoRightEpisode = document.querySelector(".icono-right-episode")
+
+const seccionPaginadoUbicaciones = document.querySelector(".seccion-paginado-ubicaciones")
+const pagePrevUbicaciones = document.querySelector("#page-prev-ubicaciones")
+const pageNextUbicaciones = document.querySelector("#page-next-ubicaciones")
+const iconoLeftUbicaciones = document.querySelector(".icono-left-ubicaciones")
+const iconoRightUbicaciones = document.querySelector(".icono-right-ubicaciones")
 let paginaActual = 1
 let ultimaPagina = 0
 
@@ -145,6 +152,7 @@ const mostrarPersonajeEnHTML = (array) => {
    detalleDePersonaje(); 
    seccionPaginadoEpisodios.style.display="none"
    seccionPaginado.style.display="flex"
+   seccionPaginadoUbicaciones.style.display="none"
 }  
 
 
@@ -164,6 +172,7 @@ const mostrarEpisodioEnHTML = (array) => {
   mostrarTarjetas(arrayTarjetas,tarjetaEpisodios);
   seccionPaginado.style.display="none"
   seccionPaginadoEpisodios.style.display="flex"
+  seccionPaginadoUbicaciones.style.display="none"
 } 
 
 ///UBICACIONE EN HTML///
@@ -178,6 +187,9 @@ const mostrarUbicacionEnHTML = (array) => {
     tarjetaUbicaciones.innerHTML = html   
     detalleUbicaciones()  
     mostrarTarjetas(arrayTarjetas,tarjetaUbicaciones)
+    seccionPaginadoUbicaciones.style.display="flex"
+    seccionPaginado.style.display="none"
+    seccionPaginadoEpisodios.style.display="none"
 } 
 ///BUSCADOR ////
 

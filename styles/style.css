@@ -173,14 +173,14 @@ a {
   display: none;
 }
 
-.seccion-paginado, .seccion-paginado-episodios {
+.seccion-paginado, .seccion-paginado-episodios, .seccion-paginado-ubicaciones {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #ebe8e8;
 }
-.seccion-paginado .page, .seccion-paginado-episodios .page {
+.seccion-paginado .page, .seccion-paginado-episodios .page, .seccion-paginado-ubicaciones .page {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -188,13 +188,16 @@ a {
   flex-direction: column;
   margin: 5px;
 }
-.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado .icono-left-episode, .seccion-paginado .icono-right-episode, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right, .seccion-paginado-episodios .icono-left-episode, .seccion-paginado-episodios .icono-right-episode {
+.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado .icono-left-episode, .seccion-paginado .icono-right-episode, .seccion-paginado .icono-left-ubicaciones,
+.seccion-paginado .icono-right-ubicaciones, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right, .seccion-paginado-episodios .icono-left-episode, .seccion-paginado-episodios .icono-right-episode, .seccion-paginado-episodios .icono-left-ubicaciones,
+.seccion-paginado-episodios .icono-right-ubicaciones, .seccion-paginado-ubicaciones .icono-left, .seccion-paginado-ubicaciones .icono-right, .seccion-paginado-ubicaciones .icono-left-episode, .seccion-paginado-ubicaciones .icono-right-episode, .seccion-paginado-ubicaciones .icono-left-ubicaciones,
+.seccion-paginado-ubicaciones .icono-right-ubicaciones {
   background-color: transparent;
   border: none;
   font-size: 38px;
   cursor: pointer;
 }
-.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left, .seccion-paginado-episodios .fa-angle-right, .seccion-paginado-episodios .fa-angle-left {
+.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left, .seccion-paginado-episodios .fa-angle-right, .seccion-paginado-episodios .fa-angle-left, .seccion-paginado-ubicaciones .fa-angle-right, .seccion-paginado-ubicaciones .fa-angle-left {
   text-align: center;
   color: #ebe8e8;
   width: 60px;
