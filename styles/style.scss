@@ -134,13 +134,13 @@
 .seccion-paginado, .seccion-paginado-episodios{
    @include flex-centrar;
    color: $color-texto-principal;
-   display: none;
+  
    .page{
        @include flex-centrar;
        flex-direction: column;
        margin: 5px;
    }
-   .icono-left , .icono-right{
+   .icono-left, .icono-right, .icono-left-episode, .icono-right-episode{
        background-color: transparent;
        border: none;
        font-size: 38px; 

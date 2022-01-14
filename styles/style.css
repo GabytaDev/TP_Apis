@@ -179,7 +179,6 @@ a {
   justify-content: center;
   align-items: center;
   color: #ebe8e8;
-  display: none;
 }
 .seccion-paginado .page, .seccion-paginado-episodios .page {
   display: flex;
@@ -189,7 +188,7 @@ a {
   flex-direction: column;
   margin: 5px;
 }
-.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right {
+.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado .icono-left-episode, .seccion-paginado .icono-right-episode, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right, .seccion-paginado-episodios .icono-left-episode, .seccion-paginado-episodios .icono-right-episode {
   background-color: transparent;
   border: none;
   font-size: 38px;
