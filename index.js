@@ -267,6 +267,7 @@ const mostrarDetallePersonajeHTML = (data)=>{
     <p>Specie: ${data.species}</p>
     <p>Status: ${data.status}</p>
   </div>`
+  seccionPaginado.style.display="none"
 }
 
 ///click tarjeta episodio///
@@ -296,10 +297,11 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     `<div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Air Date: ${data.air_date}</p>
+    <img src="./images/58f37726a4fa116215a92410.png">
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
-  
+  seccionPaginadoEpisodios.style.display="none"
 }
 
 ///click tarjeta ubicaciones///
@@ -329,9 +331,11 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     `<div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Type: ${data.type}</p>
+    <img src="./images/58f37719a4fa116215a9240e.png">
     <p>Dimension: ${data.dimension}</p>
     <p>Created: ${data.created}</p>
   </div>` 
+  seccionPaginadoUbicaciones.style.display="none"
 }
 //ordenar A/Z
 selectOrden.onchange = ()=>{
