@@ -139,6 +139,23 @@ a {
   height: auto;
 }
 
+.icono-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ebe8e8;
+  padding: 10px;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.icono-home .fa-home {
+  color: #ebe8e8;
+  font-size: 38px;
+}
+
 .tarjeta-personaje, .tarjeta-ubicaciones, .tarjeta-episodios {
   display: flex;
   flex-wrap: wrap;
@@ -221,7 +238,7 @@ a {
     align-items: center;
   }
   .nav-bar .titulo {
-    margin: 5px 0 10px 0;
+    margin: 0 0 20px 0;
     padding: 0 5px 0 5px;
   }
 

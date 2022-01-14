@@ -1,4 +1,5 @@
 ///ELEMENTOS DEL DOM/////
+const btnHome = document.getElementById("btn-home")
 const linkCharacters = document.getElementById("link-characters")
 const linkEpisodes = document.getElementById("link-episodes")
 const linkLocations = document.getElementById("link-locations")
@@ -37,8 +38,12 @@ const iconoRightUbicaciones = document.querySelector(".icono-right-ubicaciones")
 let paginaActual = 1
 let ultimaPagina = 0
 
-
 const baseUrl = "https://rickandmortyapi.com/api/"
+
+//Boton home
+btnHome.onclick= ()=>{
+    todosLosPersonajes()
+}
 
 //vista tarjetas///
 const arrayTarjetas = [
@@ -86,7 +91,6 @@ const todosLosPersonajes = ()=>{
     .then(data =>{
         ultimaPagina = data.info.pages
         mostrarPersonajeEnHTML(data.results)
-        console.log(data.results)
        ordenarAZ (data.results, selectOrden.value)
     })
 }
