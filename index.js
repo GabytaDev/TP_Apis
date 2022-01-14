@@ -22,10 +22,13 @@ const pagePrev = document.querySelector("#page-prev")
 const pageNext = document.querySelector("#page-next")
 const iconoRight = document.querySelector(".fa-angle-right")
 const iconoLeft = document.querySelector(".fa-angle-left")
+const seccionPaginadoEpisodios = document.querySelector(".seccion-paginado-episodios")
+const pagePrevEpisodios = document.querySelector("#page-prev-episodios")
+const pageNextEpisodios = document.querySelector("#page-next-episodios")
+const iconoLeftEpisode = document.querySelector(".icono-left-episode")
+const iconoRightEpisode = document.querySelector(".icono-right-episode")
 let paginaActual = 1
 let ultimaPagina = 0
-
-
 
 
 const baseUrl = "https://rickandmortyapi.com/api/"
@@ -52,12 +55,15 @@ linkCharacters.onclick = (e)=>{
     e.preventDefault()
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
     todosLosPersonajes()   
+   
+    
 }
 
 linkEpisodes.onclick = (e)=>{
     e.preventDefault()
-    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)   
+    mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)  
     todosLosEpisodios()
+   
 }
 linkLocations.onclick = (e)=>{
     e.preventDefault()
@@ -75,17 +81,18 @@ const todosLosPersonajes = ()=>{
         mostrarPersonajeEnHTML(data.results)
         console.log(data.results)
        ordenarAZ (data.results, selectOrden.value)
-        
     })
 }
 
 todosLosPersonajes()
+
 
 ///Fetch todos los episodios///
 const todosLosEpisodios = ()=>{
     fetch(`${baseUrl}episode?page=${paginaActual}`)
     .then((res)=> res.json())
     .then((data)=>{
+        ultimaPagina = data.info.pages
         mostrarEpisodioEnHTML(data.results)
     })
     
@@ -132,10 +139,12 @@ const mostrarPersonajeEnHTML = (array) => {
        <p>Specie: ${curr.species}</p>
      </div>`
     },"")
+
     tarjetaPersonaje.innerHTML = html
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
    detalleDePersonaje(); 
-   
+   seccionPaginadoEpisodios.style.display="none"
+   seccionPaginado.style.display="flex"
 }  
 
 
@@ -152,8 +161,9 @@ const mostrarEpisodioEnHTML = (array) => {
 
     tarjetaEpisodios.innerHTML = html  
   detalleDeEpisodio()
-  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios)
-  
+  mostrarTarjetas(arrayTarjetas,tarjetaEpisodios);
+  seccionPaginado.style.display="none"
+  seccionPaginadoEpisodios.style.display="flex"
 } 
 
 ///UBICACIONE EN HTML///
@@ -178,12 +188,15 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
     tarjetaPersonaje.classList.remove("ocultar")
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
+    seccionPaginadoEpisodios.style.display="none"
     
    } else if(tipoDeBusqueda === "episode"){
     buscarEpisodio(parametroDeBusqueda)
     tarjetaEpisodios.classList.remove("ocultar")
+    seccionPaginadoEpisodios.style.display="flex"
     tarjetaPersonaje.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
+    seccionPaginado.style.display="none"
    }
 }
 
@@ -274,6 +287,7 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
+  
 }
 
 ///click tarjeta ubicaciones///
@@ -360,6 +374,7 @@ pageNext.onclick = ()=>{
         pageNext.disabled = true
     }else{
         iconoLeft.style.color ="#ebe8e8"
+        pagePrev.disabled=false
     }
     
     todosLosPersonajes() 
@@ -372,11 +387,35 @@ pagePrev.onclick = () => {
         iconoLeft.style.color = "black"
     }else{
         iconoRight.style.color = "#ebe8e8"
+        pageNext.disabled=false
     }
     todosLosPersonajes()
 }
+//Paginado Episodios tiene 3 paginas
 
+pageNextEpisodios.onclick = () => {
+    paginaActual = paginaActual + 1
+    console.log("pagina actual next", paginaActual)
+    if (paginaActual === ultimaPagina) {
+        pageNextEpisodios.disabled = true
+        iconoRightEpisode.style.color = "black"
+    }else{
+        iconoLeftEpisode.style.color ="#ebe8e8"
+        pagePrevEpisodios.disabled=false
+    }
+    todosLosEpisodios()
+};
 
-
-
+pagePrevEpisodios.onclick = ()=> {
+    paginaActual = paginaActual -1 
+    console.log("pagina actual prev", paginaActual)
+    if (paginaActual === 1) {
+        pagePrevEpisodios.disabled = true
+        iconoLeftEpisode.style.color = "black"
+    }else{
+        iconoRightEpisode.style.color = "#ebe8e8"
+        pageNextEpisodios.disabled = false
+    }
+    todosLosEpisodios()
+}
 
