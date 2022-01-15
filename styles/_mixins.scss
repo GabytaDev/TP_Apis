@@ -25,3 +25,9 @@
     background-color: $background-color;
     color:rgb(47, 47, 47);
 }
+@mixin icono-flecha {
+    font-size: 36px;
+    color: $color-texto-principal;
+    display: flex;
+    cursor: pointer;
+}

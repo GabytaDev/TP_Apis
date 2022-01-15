@@ -38,6 +38,7 @@ const iconoRightUbicaciones = document.querySelector(".icono-right-ubicaciones")
 let paginaActual = 1
 let ultimaPagina = 0
 
+
 const baseUrl = "https://rickandmortyapi.com/api/"
 
 //Boton home
@@ -179,7 +180,7 @@ const mostrarEpisodioEnHTML = (array) => {
   seccionPaginadoUbicaciones.style.display="none"
 } 
 
-///UBICACIONE EN HTML///
+///UBICACIONES EN HTML///
 const mostrarUbicacionEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
         return acc = acc +  `<div class="card" data-id=${curr.id}>
@@ -246,9 +247,9 @@ const detalleDePersonaje = ()=>{
             const idDelpersonaje = cards[i].dataset.id
             console.log("id personaje",idDelpersonaje)
             buscarPersonajePorID(idDelpersonaje)
-        }
-        
+        } 
     }
+    
 }
 
 const buscarPersonajePorID = (id) =>{
@@ -259,12 +260,15 @@ const buscarPersonajePorID = (id) =>{
         console.log("data id",data)
         mostrarDetallePersonajeHTML(data) 
     })  
+
 }
 
 //muestra detalle de 1 solo personaje
+//cuando hace click en la flecha volver en detalle personaje, vuelve a la busqueda anterior
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
-    `<div class="card">
+    `<div class="icono-flecha-volver" id="icono-volver-personaje"><i class="fas fa-long-arrow-alt-left"></i></div>
+    <div class="card">
     <h3>Name: ${data.name}</h3>
     <img src="${data.image}"></img>
     <p>Gender: ${data.gender}</p>
@@ -272,7 +276,13 @@ const mostrarDetallePersonajeHTML = (data)=>{
     <p>Status: ${data.status}</p>
   </div>`
   seccionPaginado.style.display="none"
+  const iconoVolverPersonaje = document.getElementById("icono-volver-personaje")
+  iconoVolverPersonaje.onclick = ()=>{
+   todosLosPersonajes()
+ }
+ 
 }
+
 
 ///click tarjeta episodio///
 const detalleDeEpisodio = ()=>{
