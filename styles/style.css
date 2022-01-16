@@ -228,6 +228,24 @@ a {
   height: 60px;
 }
 
+.contenedor-not-found {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor-not-found .contenedor-imagen-not-found {
+  width: 400px;
+  height: auto;
+}
+.contenedor-not-found .contenedor-imagen-not-found img {
+  width: 100%;
+}
+.contenedor-not-found .contenedor-texto-not-found {
+  color: #ebe8e8;
+  font-size: larger;
+}
+
 @media screen and (max-width: 1200px) {
   .header {
     display: flex;

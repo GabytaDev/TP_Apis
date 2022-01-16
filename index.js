@@ -15,8 +15,8 @@ const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
 const selectStatus = document.getElementById("select-status")
 const selectGender = document.getElementById("select-gender")
-
 const selectOrden = document.getElementById("select-orden")
+const contenedorNotFound = document.querySelector(".contenedor-not-found")
 ////// PAGINADO ////
 const seccionPaginado = document.querySelector(".seccion-paginado")
 const pagePrev = document.querySelector("#page-prev")
@@ -141,7 +141,7 @@ selectBusqueda.onchange = ()=>{
 botonBuscar.onclick = ()=>{
     guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
-
+   
 }
 
 ///PERSONAJE EN HTML ///
@@ -234,7 +234,6 @@ const buscarEpisodio = (episodio)=>{
     fetch(`${baseUrl}episode?name=${episodio}`)
     .then((res)=> res.json())
     .then((data)=>{
-        console.log(data)
         mostrarEpisodioEnHTML(data.results)
     })
    
@@ -246,7 +245,6 @@ const detalleDePersonaje = ()=>{
     for (let i = 0; i < cards.length; i++) {
         cards[i].onclick = ()=>{
             const idDelpersonaje = cards[i].dataset.id
-            console.log("id personaje",idDelpersonaje)
             buscarPersonajePorID(idDelpersonaje)
         } 
     }
@@ -279,12 +277,10 @@ const mostrarDetallePersonajeHTML = (data)=>{
   const iconoVolverPersonaje = document.getElementById("icono-volver-personaje")
   iconoVolverPersonaje.onclick = ()=>{
     const leoBusqueda = leerParametrosDeBusqueda()  
-    console.log(leoBusqueda)
     if(leoBusqueda === null){
         todosLosPersonajes()
     }
     else if(leoBusqueda.esBusqueda === true){
-        console.log("entre al if")
         buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, leoBusqueda.selectStatus, leoBusqueda.selectGender)
     }else{
         todosLosPersonajes()
@@ -300,7 +296,6 @@ const detalleDeEpisodio = ()=>{
     for (let i = 0; i < cardEpisodio.length; i++) {
         cardEpisodio[i].onclick = ()=>{
             const idDelEpisodio = cardEpisodio[i].dataset.id
-            console.log("id episodio",idDelEpisodio)
             buscarEpisodioPorID(idDelEpisodio)
         }    
     }
@@ -311,7 +306,6 @@ const buscarEpisodioPorID = (id) =>{
     fetch(`${baseUrl}episode/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id",data)
         mostrarDetalleEpisodioHTML(data) 
     })  
 }
@@ -330,12 +324,10 @@ const mostrarDetalleEpisodioHTML = (data)=>{
   const iconoVolverEpisodio = document.getElementById("icono-volver-episodio")
   iconoVolverEpisodio.onclick = ()=>{
     const leoBusqueda = leerParametrosDeBusqueda()  
-    console.log(leoBusqueda)
     if(leoBusqueda === null){
         todosLosEpisodios()
     }
     else if(leoBusqueda.esBusqueda === true){
-        console.log("entre al if")
         buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, "", "")
     }else{
         todosLosEpisodios()
@@ -349,7 +341,6 @@ const detalleUbicaciones = ()=>{
     for (let i = 0; i < cardUbicacion.length; i++) {
         cardUbicacion[i].onclick = ()=>{
             const idUbicacion = cardUbicacion[i].dataset.id
-            console.log("id ubicacion",idUbicacion)
             buscarUbicacionPorId(idUbicacion)
         }    
     }
@@ -359,7 +350,6 @@ const buscarUbicacionPorId = (id)=>{
     fetch(`${baseUrl}location/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id ubicacion",data)
         mostrarDetalleUbicacionHTML(data) 
     })  
 }
