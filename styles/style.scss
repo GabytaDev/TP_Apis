@@ -106,6 +106,13 @@
     width: auto;
     height: auto;  
 }
+.icono-flecha-volver{
+    .fa-long-arrow-alt-left{
+       @include icono-flecha
+    }
+    
+
+}
 .icono-home{
     @include flex-centrar($direccion: column, $content: center);
     color: $color-texto-principal;

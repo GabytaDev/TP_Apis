@@ -38,11 +38,14 @@ const iconoRightUbicaciones = document.querySelector(".icono-right-ubicaciones")
 let paginaActual = 1
 let ultimaPagina = 0
 
+
 const baseUrl = "https://rickandmortyapi.com/api/"
 
 //Boton home
 btnHome.onclick= ()=>{
+    guardarParametrosBusquedaLs(false,"","","","")
     todosLosPersonajes()
+
 }
 
 //vista tarjetas///
@@ -134,9 +137,11 @@ selectBusqueda.onchange = ()=>{
         selectStatus.disabled = false
     }
 }
-
+//guardar los parametros en local stroge
 botonBuscar.onclick = ()=>{
+    guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
+
 }
 
 ///PERSONAJE EN HTML ///
@@ -179,7 +184,7 @@ const mostrarEpisodioEnHTML = (array) => {
   seccionPaginadoUbicaciones.style.display="none"
 } 
 
-///UBICACIONE EN HTML///
+///UBICACIONES EN HTML///
 const mostrarUbicacionEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
         return acc = acc +  `<div class="card" data-id=${curr.id}>
@@ -197,10 +202,10 @@ const mostrarUbicacionEnHTML = (array) => {
 } 
 ///BUSCADOR ////
 
-const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
+const buscador = (tipoDeBusqueda , parametroDeBusqueda, parametroStatus,parametroGender )=>{
     console.log(tipoDeBusqueda, parametroDeBusqueda)
    if(tipoDeBusqueda === "character"){
-    obtenerPersonaje(parametroDeBusqueda)
+    obtenerPersonaje(parametroDeBusqueda, parametroStatus, parametroGender)
     tarjetaPersonaje.classList.remove("ocultar")
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
@@ -217,14 +222,11 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
 }
 
 /**** Fetch que filtra por personaje *****/
-const obtenerPersonaje = (nombrePersonaje)=>{
-    console.log(nombrePersonaje)
-    fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${selectStatus.value}&gender=${selectGender.value}`)
+const obtenerPersonaje = (nombrePersonaje, status, gender )=>{
+    fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${status}&gender=${gender}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log (data)
         mostrarPersonajeEnHTML(data.results) 
-
     })   
 }
 /**** Fetch que filtra por episodio *****/
@@ -246,9 +248,9 @@ const detalleDePersonaje = ()=>{
             const idDelpersonaje = cards[i].dataset.id
             console.log("id personaje",idDelpersonaje)
             buscarPersonajePorID(idDelpersonaje)
-        }
-        
+        } 
     }
+    
 }
 
 const buscarPersonajePorID = (id) =>{
@@ -256,15 +258,17 @@ const buscarPersonajePorID = (id) =>{
     fetch(`${baseUrl}character/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id",data)
         mostrarDetallePersonajeHTML(data) 
     })  
+
 }
 
 //muestra detalle de 1 solo personaje
+//cuando hace click en la flecha volver en detalle personaje, vuelve a la busqueda anterior
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
-    `<div class="card">
+    `<div class="icono-flecha-volver" id="icono-volver-personaje"><i class="fas fa-long-arrow-alt-left"></i></div>
+    <div class="card">
     <h3>Name: ${data.name}</h3>
     <img src="${data.image}"></img>
     <p>Gender: ${data.gender}</p>
@@ -272,7 +276,23 @@ const mostrarDetallePersonajeHTML = (data)=>{
     <p>Status: ${data.status}</p>
   </div>`
   seccionPaginado.style.display="none"
+  const iconoVolverPersonaje = document.getElementById("icono-volver-personaje")
+  iconoVolverPersonaje.onclick = ()=>{
+    const leoBusqueda = leerParametrosDeBusqueda()  
+    console.log(leoBusqueda)
+    if(leoBusqueda === null){
+        todosLosPersonajes()
+    }
+    else if(leoBusqueda.esBusqueda === true){
+        console.log("entre al if")
+        buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, leoBusqueda.selectStatus, leoBusqueda.selectGender)
+    }else{
+        todosLosPersonajes()
+    }
+ }
+ 
 }
+
 
 ///click tarjeta episodio///
 const detalleDeEpisodio = ()=>{
@@ -298,7 +318,8 @@ const buscarEpisodioPorID = (id) =>{
 //muestra detalle de 1 solo episodio
 const mostrarDetalleEpisodioHTML = (data)=>{
     tarjetaEpisodios.innerHTML = 
-    `<div class="card">
+    `<div class="icono-flecha-volver" id="icono-volver-episodio"><i class="fas fa-long-arrow-alt-left"></i></div>
+    <div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Air Date: ${data.air_date}</p>
     <img src="./images/58f37726a4fa116215a92410.png">
@@ -306,6 +327,20 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <p>Created: ${data.created}</p>
   </div>`
   seccionPaginadoEpisodios.style.display="none"
+  const iconoVolverEpisodio = document.getElementById("icono-volver-episodio")
+  iconoVolverEpisodio.onclick = ()=>{
+    const leoBusqueda = leerParametrosDeBusqueda()  
+    console.log(leoBusqueda)
+    if(leoBusqueda === null){
+        todosLosEpisodios()
+    }
+    else if(leoBusqueda.esBusqueda === true){
+        console.log("entre al if")
+        buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, "", "")
+    }else{
+        todosLosEpisodios()
+    } 
+  }
 }
 
 ///click tarjeta ubicaciones///
@@ -316,8 +351,7 @@ const detalleUbicaciones = ()=>{
             const idUbicacion = cardUbicacion[i].dataset.id
             console.log("id ubicacion",idUbicacion)
             buscarUbicacionPorId(idUbicacion)
-        }  
-        
+        }    
     }
 }
 
@@ -463,4 +497,28 @@ pagePrevUbicaciones.onclick = ()=>{
         pageNextUbicaciones.disabled = false
     }
     todasLasUbicaciones()
+}
+//guardar en localStorage la busqueda
+
+const guardarParametrosBusquedaLs = (esBusqueda,tipoDeBusqueda, parametroDeBusqueda, parametroStatus,parametroGender)=>{
+   const objetoBusqueda = {
+    esBusqueda:esBusqueda,
+    selectBusqueda: tipoDeBusqueda,
+    inputBuscador: parametroDeBusqueda,
+    selectStatus: parametroStatus,
+    selectGender: parametroGender
+   }
+
+    const guardarBusqueda = JSON.stringify(objetoBusqueda)
+    localStorage.setItem("busqueda", guardarBusqueda)
+
+}
+
+const leerParametrosDeBusqueda = ()=>{
+    const busquedaGuardada = localStorage.getItem("busqueda")
+    busquedaGuardadaJS = JSON.parse(busquedaGuardada)
+
+    return(
+       busquedaGuardadaJS 
+    )
 }

@@ -139,6 +139,13 @@ a {
   height: auto;
 }
 
+.icono-flecha-volver .fa-long-arrow-alt-left {
+  font-size: 36px;
+  color: #ebe8e8;
+  display: flex;
+  cursor: pointer;
+}
+
 .icono-home {
   display: flex;
   flex-direction: column;
