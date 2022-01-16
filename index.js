@@ -135,9 +135,11 @@ selectBusqueda.onchange = ()=>{
         selectStatus.disabled = false
     }
 }
-
+//guardar los parametros en local stroge
 botonBuscar.onclick = ()=>{
+    guardarParametrosBusquedaLs (selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
+
 }
 
 ///PERSONAJE EN HTML ///
@@ -198,16 +200,18 @@ const mostrarUbicacionEnHTML = (array) => {
 } 
 ///BUSCADOR ////
 
-const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
+const buscador = (tipoDeBusqueda , parametroDeBusqueda, parametroStatus,parametroGender )=>{
     console.log(tipoDeBusqueda, parametroDeBusqueda)
    if(tipoDeBusqueda === "character"){
-    obtenerPersonaje(parametroDeBusqueda)
+       console.log("busqueda caracter")
+    obtenerPersonaje(parametroDeBusqueda, parametroStatus, parametroGender)
     tarjetaPersonaje.classList.remove("ocultar")
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
     seccionPaginadoEpisodios.style.display="none"
     
    } else if(tipoDeBusqueda === "episode"){
+    console.log("busqueda caracter")
     buscarEpisodio(parametroDeBusqueda)
     tarjetaEpisodios.classList.remove("ocultar")
     seccionPaginadoEpisodios.style.display="flex"
@@ -218,14 +222,13 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda)=>{
 }
 
 /**** Fetch que filtra por personaje *****/
-const obtenerPersonaje = (nombrePersonaje)=>{
+const obtenerPersonaje = (nombrePersonaje, status, gender )=>{
     console.log(nombrePersonaje)
-    fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${selectStatus.value}&gender=${selectGender.value}`)
+    fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${status}&gender=${gender}`)
     .then((res) => res.json())
     .then((data) => {
         console.log (data)
         mostrarPersonajeEnHTML(data.results) 
-
     })   
 }
 /**** Fetch que filtra por episodio *****/
@@ -257,7 +260,6 @@ const buscarPersonajePorID = (id) =>{
     fetch(`${baseUrl}character/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id",data)
         mostrarDetallePersonajeHTML(data) 
     })  
 
@@ -278,7 +280,17 @@ const mostrarDetallePersonajeHTML = (data)=>{
   seccionPaginado.style.display="none"
   const iconoVolverPersonaje = document.getElementById("icono-volver-personaje")
   iconoVolverPersonaje.onclick = ()=>{
-   todosLosPersonajes()
+   const leoBusqueda = leerParametrosDeBusqueda()  
+   console.log(leoBusqueda)
+
+   console.log("esto", leoBusqueda.inputBuscador)
+   if(leoBusqueda.esBusqueda === true){
+       console.log("entre al if")
+       buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, leoBusqueda.selectStatus, leoBusqueda.selectGender)
+   }else{
+    todosLosPersonajes() 
+   }
+   
  }
  
 }
@@ -473,4 +485,27 @@ pagePrevUbicaciones.onclick = ()=>{
         pageNextUbicaciones.disabled = false
     }
     todasLasUbicaciones()
+}
+//guardar en localStorage la busqueda
+
+const guardarParametrosBusquedaLs = (tipoDeBusqueda, parametroDeBusqueda, parametroStatus,parametroGender)=>{
+   const objetoBusqueda = {
+    esBusqueda:true,
+    selectBusqueda: tipoDeBusqueda,
+    inputBuscador: parametroDeBusqueda,
+    selectStatus: parametroStatus,
+    selectGender: parametroGender
+   }
+
+    const guardarBusqueda = JSON.stringify(objetoBusqueda)
+    localStorage.setItem("busqueda", guardarBusqueda)
+
+}
+
+const leerParametrosDeBusqueda = ()=>{
+    const busquedaGuardada = localStorage.getItem("busqueda")
+    busquedaGuardadaJS = JSON.parse(busquedaGuardada)
+    return(
+       busquedaGuardadaJS 
+    )
 }
