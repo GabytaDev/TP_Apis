@@ -290,7 +290,6 @@ const mostrarDetallePersonajeHTML = (data)=>{
         todosLosPersonajes()
     }
  }
-   
  
 }
 
@@ -328,7 +327,20 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <p>Created: ${data.created}</p>
   </div>`
   seccionPaginadoEpisodios.style.display="none"
-  
+  const iconoVolverEpisodio = document.getElementById("icono-volver-episodio")
+  iconoVolverEpisodio.onclick = ()=>{
+    const leoBusqueda = leerParametrosDeBusqueda()  
+    console.log(leoBusqueda)
+    if(leoBusqueda === null){
+        todosLosEpisodios()
+    }
+    else if(leoBusqueda.esBusqueda === true){
+        console.log("entre al if")
+        buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, "", "")
+    }else{
+        todosLosEpisodios()
+    } 
+  }
 }
 
 ///click tarjeta ubicaciones///
