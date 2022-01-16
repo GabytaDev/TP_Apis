@@ -172,7 +172,7 @@ const mostrarEpisodioEnHTML = (array) => {
         `<div class="card" data-id=${curr.id}>
     <h3>Name: ${curr.name}</h3>
     <p>Episode: ${curr.episode}</p>
-    <img src="./images/58f37726a4fa116215a92410.png">
+    <img src="./images/58f3773fa4fa116215a92413.png">
     </div>`
       },"")
 
@@ -322,7 +322,7 @@ const mostrarDetalleEpisodioHTML = (data)=>{
     <div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Air Date: ${data.air_date}</p>
-    <img src="./images/58f37726a4fa116215a92410.png">
+    <img src="./images/58f3773fa4fa116215a92413.png">
     <p>Episode: ${data.episode}</p>
     <p>Created: ${data.created}</p>
   </div>`
