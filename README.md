@@ -1,4 +1,4 @@
-![Rick and Morty](./images/58f37720a4fa116215a9240f.png)
+![Rick and Morty](./images/portada-readme.png)
 # Series Finder Rick and Morty 
 ****
 
@@ -11,6 +11,12 @@ Este trabajo es el resultado de un proyecto en mi formación como desarrolladora
 Tecnología utilizadas:
 
 - HTML5
+- CSS
 - SASS
 - JAVASCRITP
 - API REST
+- GIT - GITHUB
+***
+### Para clonar el proyecto sigue estas instrucciones!
+- Descargar los archivos en tu pc 
+- Ejecutar en consola npm install
