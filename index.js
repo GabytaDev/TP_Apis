@@ -45,7 +45,6 @@ const baseUrl = "https://rickandmortyapi.com/api/"
 btnHome.onclick= ()=>{
     guardarParametrosBusquedaLs(false,"","","","")
     todosLosPersonajes()
-
 }
 
 //vista tarjetas///
@@ -141,7 +140,7 @@ selectBusqueda.onchange = ()=>{
 botonBuscar.onclick = ()=>{
     guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
-   
+   //ejecutar funcion si el get es 404 poner imagen not found
 }
 
 ///PERSONAJE EN HTML ///

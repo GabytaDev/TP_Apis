@@ -178,7 +178,9 @@
 
 .contenedor-not-found{
     @include flex-centrar($direccion: row, $content: center);
+    display: none;
     .contenedor-imagen-not-found{
+        
         width: 400px;
         height: auto;
         img{
