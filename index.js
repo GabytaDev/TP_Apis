@@ -9,6 +9,7 @@ const tarjetaEpisodios = document.querySelector(".tarjeta-episodios")
 const tarjetaUbicaciones = document.querySelector(".tarjeta-ubicaciones")
 
 const contenedorTarjetasPersonaje = document.querySelector(".contenedor-tarjetas-personaje")
+const contenedorTarjetasEpisodio = document.querySelector(".contenedor-tarjetas-episodios")
 const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
@@ -45,6 +46,7 @@ const baseUrl = "https://rickandmortyapi.com/api/"
 btnHome.onclick= ()=>{
     guardarParametrosBusquedaLs(false,"","","","")
     todosLosPersonajes()
+    contenedorTarjetasPersonaje.style.display="block"
 }
 
 //vista tarjetas///
@@ -140,9 +142,11 @@ selectBusqueda.onchange = ()=>{
 botonBuscar.onclick = ()=>{
     guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
-   //ejecutar funcion si el get es 404 poner imagen not found
 }
-
+const mostarNotfoundHTMl = ()=>{
+    contenedorNotFound.style.display="flex"
+    contenedorTarjetasPersonaje.style.display="none"
+}
 ///PERSONAJE EN HTML ///
 const mostrarPersonajeEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
@@ -159,8 +163,9 @@ const mostrarPersonajeEnHTML = (array) => {
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
    detalleDePersonaje(); 
    seccionPaginadoEpisodios.style.display="none"
-   seccionPaginado.style.display="flex"
    seccionPaginadoUbicaciones.style.display="none"
+   contenedorNotFound.style.display="none"
+   seccionPaginado.style.display="flex"
 }  
 
 
@@ -225,15 +230,31 @@ const obtenerPersonaje = (nombrePersonaje, status, gender )=>{
     fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${status}&gender=${gender}`)
     .then((res) => res.json())
     .then((data) => {
-        mostrarPersonajeEnHTML(data.results) 
+        if(!data.results){
+            mostarNotfoundHTMl ()    
+        }else{
+            mostrarPersonajeEnHTML(data.results) 
+            contenedorNotFound.style.display="none"
+            contenedorTarjetasPersonaje.style.display="block"
+        }
+       
     })   
 }
+
 /**** Fetch que filtra por episodio *****/
 const buscarEpisodio = (episodio)=>{
     fetch(`${baseUrl}episode?name=${episodio}`)
     .then((res)=> res.json())
     .then((data)=>{
-        mostrarEpisodioEnHTML(data.results)
+        if(!data.results){
+            mostarNotfoundHTMl ()    
+        }else{
+            mostrarEpisodioEnHTML(data.results)
+            contenedorNotFound.style.display="none"
+            seccionPaginadoEpisodios.style.display="none"
+            contenedorTarjetasEpisodio.style.display="block"
+        }
+        
     })
    
 }
@@ -261,7 +282,6 @@ const buscarPersonajePorID = (id) =>{
 }
 
 //muestra detalle de 1 solo personaje
-//cuando hace click en la flecha volver en detalle personaje, vuelve a la busqueda anterior
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
     `<div class="icono-flecha-volver" id="icono-volver-personaje"><i class="fas fa-long-arrow-alt-left"></i></div>
