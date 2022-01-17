@@ -2,12 +2,14 @@
 # Series Finder Rick and Morty 
 ****
 
-Aquí puedes ver el trabajo realizado! ---> 
+Aquí puedes ver el trabajo realizado! ---> [https://gabytadev.github.io/TP_Apis/]
+
 ****
 ### Trabajo práctico utilizando Apis y Sass
 Hola! Esta es una web que te permite buscar personajes, episodios y lugares sobre la famosa serie Rick and Morty.
 
-Este trabajo es el resultado de un proyecto en mi formación como desarrolladora Fronted en ADAITW
+Este trabajo pertenece a un proyecto en mi formación como desarrolladora Fronted en [ADAITW](https://adaitw.org/)
+
 Tecnología utilizadas:
 
 - HTML5
