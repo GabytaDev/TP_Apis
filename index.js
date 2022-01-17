@@ -9,14 +9,15 @@ const tarjetaEpisodios = document.querySelector(".tarjeta-episodios")
 const tarjetaUbicaciones = document.querySelector(".tarjeta-ubicaciones")
 
 const contenedorTarjetasPersonaje = document.querySelector(".contenedor-tarjetas-personaje")
+const contenedorTarjetasEpisodio = document.querySelector(".contenedor-tarjetas-episodios")
 const formulario = document.querySelector("#formulario")
 const botonBuscar = document.getElementById("buscar")
 const inputBuscador = document.querySelector("#input-buscador")
 const selectBusqueda = document.getElementById("select-busqueda")
 const selectStatus = document.getElementById("select-status")
 const selectGender = document.getElementById("select-gender")
-
 const selectOrden = document.getElementById("select-orden")
+const contenedorNotFound = document.querySelector(".contenedor-not-found")
 ////// PAGINADO ////
 const seccionPaginado = document.querySelector(".seccion-paginado")
 const pagePrev = document.querySelector("#page-prev")
@@ -45,7 +46,7 @@ const baseUrl = "https://rickandmortyapi.com/api/"
 btnHome.onclick= ()=>{
     guardarParametrosBusquedaLs(false,"","","","")
     todosLosPersonajes()
-
+    contenedorTarjetasPersonaje.style.display="block"
 }
 
 //vista tarjetas///
@@ -141,9 +142,11 @@ selectBusqueda.onchange = ()=>{
 botonBuscar.onclick = ()=>{
     guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
-
 }
-
+const mostarNotfoundHTMl = ()=>{
+    contenedorNotFound.style.display="flex"
+    contenedorTarjetasPersonaje.style.display="none"
+}
 ///PERSONAJE EN HTML ///
 const mostrarPersonajeEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
@@ -160,8 +163,9 @@ const mostrarPersonajeEnHTML = (array) => {
     mostrarTarjetas(arrayTarjetas,tarjetaPersonaje)
    detalleDePersonaje(); 
    seccionPaginadoEpisodios.style.display="none"
-   seccionPaginado.style.display="flex"
    seccionPaginadoUbicaciones.style.display="none"
+   contenedorNotFound.style.display="none"
+   seccionPaginado.style.display="flex"
 }  
 
 
@@ -226,16 +230,31 @@ const obtenerPersonaje = (nombrePersonaje, status, gender )=>{
     fetch(`${baseUrl}character/?name=${nombrePersonaje}&status=${status}&gender=${gender}`)
     .then((res) => res.json())
     .then((data) => {
-        mostrarPersonajeEnHTML(data.results) 
+        if(!data.results){
+            mostarNotfoundHTMl ()    
+        }else{
+            mostrarPersonajeEnHTML(data.results) 
+            contenedorNotFound.style.display="none"
+            contenedorTarjetasPersonaje.style.display="block"
+        }
+       
     })   
 }
+
 /**** Fetch que filtra por episodio *****/
 const buscarEpisodio = (episodio)=>{
     fetch(`${baseUrl}episode?name=${episodio}`)
     .then((res)=> res.json())
     .then((data)=>{
-        console.log(data)
-        mostrarEpisodioEnHTML(data.results)
+        if(!data.results){
+            mostarNotfoundHTMl ()    
+        }else{
+            mostrarEpisodioEnHTML(data.results)
+            contenedorNotFound.style.display="none"
+            seccionPaginadoEpisodios.style.display="none"
+            contenedorTarjetasEpisodio.style.display="block"
+        }
+        
     })
    
 }
@@ -246,7 +265,6 @@ const detalleDePersonaje = ()=>{
     for (let i = 0; i < cards.length; i++) {
         cards[i].onclick = ()=>{
             const idDelpersonaje = cards[i].dataset.id
-            console.log("id personaje",idDelpersonaje)
             buscarPersonajePorID(idDelpersonaje)
         } 
     }
@@ -264,7 +282,6 @@ const buscarPersonajePorID = (id) =>{
 }
 
 //muestra detalle de 1 solo personaje
-//cuando hace click en la flecha volver en detalle personaje, vuelve a la busqueda anterior
 const mostrarDetallePersonajeHTML = (data)=>{
     tarjetaPersonaje.innerHTML = 
     `<div class="icono-flecha-volver" id="icono-volver-personaje"><i class="fas fa-long-arrow-alt-left"></i></div>
@@ -279,12 +296,10 @@ const mostrarDetallePersonajeHTML = (data)=>{
   const iconoVolverPersonaje = document.getElementById("icono-volver-personaje")
   iconoVolverPersonaje.onclick = ()=>{
     const leoBusqueda = leerParametrosDeBusqueda()  
-    console.log(leoBusqueda)
     if(leoBusqueda === null){
         todosLosPersonajes()
     }
     else if(leoBusqueda.esBusqueda === true){
-        console.log("entre al if")
         buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, leoBusqueda.selectStatus, leoBusqueda.selectGender)
     }else{
         todosLosPersonajes()
@@ -300,7 +315,6 @@ const detalleDeEpisodio = ()=>{
     for (let i = 0; i < cardEpisodio.length; i++) {
         cardEpisodio[i].onclick = ()=>{
             const idDelEpisodio = cardEpisodio[i].dataset.id
-            console.log("id episodio",idDelEpisodio)
             buscarEpisodioPorID(idDelEpisodio)
         }    
     }
@@ -311,7 +325,6 @@ const buscarEpisodioPorID = (id) =>{
     fetch(`${baseUrl}episode/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id",data)
         mostrarDetalleEpisodioHTML(data) 
     })  
 }
@@ -330,12 +343,10 @@ const mostrarDetalleEpisodioHTML = (data)=>{
   const iconoVolverEpisodio = document.getElementById("icono-volver-episodio")
   iconoVolverEpisodio.onclick = ()=>{
     const leoBusqueda = leerParametrosDeBusqueda()  
-    console.log(leoBusqueda)
     if(leoBusqueda === null){
         todosLosEpisodios()
     }
     else if(leoBusqueda.esBusqueda === true){
-        console.log("entre al if")
         buscador(leoBusqueda.selectBusqueda, leoBusqueda.inputBuscador, "", "")
     }else{
         todosLosEpisodios()
@@ -349,7 +360,6 @@ const detalleUbicaciones = ()=>{
     for (let i = 0; i < cardUbicacion.length; i++) {
         cardUbicacion[i].onclick = ()=>{
             const idUbicacion = cardUbicacion[i].dataset.id
-            console.log("id ubicacion",idUbicacion)
             buscarUbicacionPorId(idUbicacion)
         }    
     }
@@ -359,7 +369,6 @@ const buscarUbicacionPorId = (id)=>{
     fetch(`${baseUrl}location/${id}`)
     .then((res) => res.json())
     .then((data) => {
-        console.log("data id ubicacion",data)
         mostrarDetalleUbicacionHTML(data) 
     })  
 }
