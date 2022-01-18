@@ -3,6 +3,7 @@
 @import "variables";
 @import "componentes/header";
 @import "componentes/seccion-busqueda";
+@import "componentes/contenedor-not-found";
 
 .contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
     @include alto-y-ancho-auto;
@@ -62,21 +63,6 @@
     }
 }
 
-.contenedor-not-found{
-    @include flex-centrar($direccion: row, $content: center);
-    display: none;
-    .contenedor-imagen-not-found{
-        width: 400px;
-        height: auto;
-        img{
-            width: 100%;
-        }
-    }
-    .contenedor-texto-not-found{
-        color: $color-texto-principal;
-        font-size: larger;
-    }
-}
 //// MEDIA QUERY///
 
 @media screen and (max-width: 1200px) {
