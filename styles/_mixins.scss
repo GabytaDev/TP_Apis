@@ -31,3 +31,7 @@
     display: flex;
     cursor: pointer;
 }
+@mixin alto-y-ancho-auto {
+    width: auto;
+    height: auto;
+}
