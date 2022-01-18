@@ -386,8 +386,7 @@ const mostrarDetalleUbicacionHTML = (data)=>{
   seccionPaginadoUbicaciones.style.display="none"
   const iconoVolverUbicacion = document.getElementById("icono-volver-ubicacion")
   iconoVolverUbicacion.onclick = ()=>{
-    console.log("click", iconoVolverUbicacion)
-    
+    todasLasUbicaciones()
   }
 }
 //ordenar A/Z
