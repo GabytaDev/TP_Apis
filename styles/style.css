@@ -18,8 +18,9 @@ a {
 }
 
 .header {
-  display: flex;
   width: auto;
+  height: auto;
+  display: flex;
   align-content: center;
   justify-content: center;
   background-color: #000021;
@@ -259,9 +260,10 @@ a {
   .nav-bar {
     display: flex;
     flex-wrap: wrap;
-    width: auto;
     align-content: center;
     align-items: center;
+    width: auto;
+    height: auto;
   }
   .nav-bar .titulo {
     margin: 0 0 20px 0;
@@ -327,17 +329,16 @@ a {
   .section-busqueda .seccion-top-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
   .section-busqueda .seccion-top-form .seccion-boton-buscar {
     display: flex;
   }
-
-  .card {
+  .section-busqueda .card {
     font-size: 0.8em;
   }
-
-  .card img {
+  .section-busqueda .card img {
     width: 250px;
   }
 }

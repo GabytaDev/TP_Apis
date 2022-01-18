@@ -2,8 +2,8 @@
 @import "mixins";
 @import "variables";
 .header{
+    @include alto-y-ancho-auto;
     display: flex;
-    width: auto;
     align-content: center;
     justify-content: center;
     background-color: $color-background-principal;
@@ -24,8 +24,7 @@
     justify-content:space-evenly;
     align-content: space-between;
         .link{
-            width: auto;
-            height: auto;
+            @include alto-y-ancho-auto;
             padding: 10px;
             border: 1px solid grey;
             border-radius: 16px;
@@ -54,8 +53,7 @@
     width: 640px;
     height: 248px;
     .logo{
-        width: auto;
-        height: auto;
+        @include alto-y-ancho-auto;
     }
 }
 .contenedor-imagen-fondo{
@@ -103,8 +101,7 @@
 }
 
 .contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
-    width: auto;
-    height: auto;  
+    @include alto-y-ancho-auto;
 }
 .icono-flecha-volver{
     .fa-long-arrow-alt-left{
@@ -204,9 +201,9 @@
    .nav-bar{
     display: flex;
     flex-wrap: wrap;
-    width: auto;
     align-content: center;
     align-items: center;
+    @include alto-y-ancho-auto;
        .titulo{
         margin: 0 0 20px 0;
         padding: 0 5px 0 5px;
@@ -220,8 +217,7 @@
         width: 640px;
         height: 248px;
         .logo   {
-        width: auto;
-        height: auto;
+        @include alto-y-ancho-auto;
         }
     }   
    
@@ -267,12 +263,9 @@
       }
     }
     .seccion-top-form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-            .seccion-boton-buscar{
+        @include flex-centrar($direccion: column, $content: center);
+        .seccion-boton-buscar{
             display: flex;
-            }
         }
     }
     .card{
@@ -282,6 +275,7 @@
         width:250px;
 
     }
+ }
 }
 
 @media screen and (max-width: 700px) {
