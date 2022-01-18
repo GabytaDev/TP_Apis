@@ -375,7 +375,8 @@ const buscarUbicacionPorId = (id)=>{
 //muestra detalle de 1 sola ubicacion
 const mostrarDetalleUbicacionHTML = (data)=>{
     tarjetaUbicaciones.innerHTML = 
-    `<div class="card">
+    `<div class="icono-flecha-volver" id="icono-volver-ubicacion"><i class="fas fa-long-arrow-alt-left"></i></div>
+    <div class="card">
     <h3>Name Episode: ${data.name}</h3>
     <p>Type: ${data.type}</p>
     <img src="./images/58f37719a4fa116215a9240e.png">
@@ -383,6 +384,10 @@ const mostrarDetalleUbicacionHTML = (data)=>{
     <p>Created: ${data.created}</p>
   </div>` 
   seccionPaginadoUbicaciones.style.display="none"
+  const iconoVolverUbicacion = document.getElementById("icono-volver-ubicacion")
+  iconoVolverUbicacion.onclick = ()=>{
+    todasLasUbicaciones()
+  }
 }
 //ordenar A/Z
 selectOrden.onchange = ()=>{
