@@ -12,20 +12,7 @@
        @include icono-flecha
     }
 }
-.icono-home{
-    @include flex-centrar($direccion: column, $content: center);
-    color: $color-texto-principal;
-    padding: 10px;
-    margin: 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    .fa-home{
-        color: $color-texto-principal;
-        font-size: 38px; 
-        
-    }
-}
+
 
 .tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
     @include tarjeta;

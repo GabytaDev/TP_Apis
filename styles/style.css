@@ -26,6 +26,23 @@ a {
   background-color: #000021;
 }
 
+.icono-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ebe8e8;
+  padding: 10px;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.icono-home .fa-home {
+  color: #ebe8e8;
+  font-size: 38px;
+}
+
 .nav-bar {
   display: flex;
   width: 100%;
@@ -145,23 +162,6 @@ a {
   color: #ebe8e8;
   display: flex;
   cursor: pointer;
-}
-
-.icono-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ebe8e8;
-  padding: 10px;
-  margin: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.icono-home .fa-home {
-  color: #ebe8e8;
-  font-size: 38px;
 }
 
 .tarjeta-personaje, .tarjeta-ubicaciones, .tarjeta-episodios {

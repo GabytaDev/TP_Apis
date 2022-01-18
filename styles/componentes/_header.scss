@@ -5,7 +5,20 @@
     justify-content: center;
     background-color: $color-background-principal;
 }
-
+.icono-home{
+    @include flex-centrar($direccion: column, $content: center);
+    color: $color-texto-principal;
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    .fa-home{
+        color: $color-texto-principal;
+        font-size: 38px; 
+        
+    }
+}
 .nav-bar{
     display: flex;
     width: 100%;
