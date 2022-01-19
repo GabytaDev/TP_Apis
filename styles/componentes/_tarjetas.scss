@@ -1,0 +1,33 @@
+
+.contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
+    @include alto-y-ancho-auto;
+}
+.icono-flecha-volver{
+    .fa-long-arrow-alt-left{
+       @include icono-flecha
+    }
+}
+
+.tarjeta-personaje,.tarjeta-ubicaciones,.tarjeta-episodios {
+    @include tarjeta;
+} 
+.tarjeta-ubicaciones, .tarjeta-episodios{
+    @include tarjeta;
+    .card img{
+        width: 200px;
+    } 
+}
+.card{
+     margin: 20px;
+     padding: 20px;
+     border: 1px solid $color-background-secundario;
+     border-radius: 10px;
+     box-shadow: $sombra-principal;
+     background-color: rgb(231, 240, 248);
+     color: rgb(46, 45, 45);
+     cursor: pointer;
+}
+
+.ocultar{
+    display: none;
+}

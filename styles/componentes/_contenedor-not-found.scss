@@ -1,0 +1,16 @@
+
+.contenedor-not-found{
+    @include flex-centrar($direccion: row, $content: center);
+    display: none;
+    .contenedor-imagen-not-found{
+        width: 400px;
+        height: auto;
+        img{
+            width: 100%;
+        }
+    }
+    .contenedor-texto-not-found{
+        color: $color-texto-principal;
+        font-size: larger;
+    }
+}

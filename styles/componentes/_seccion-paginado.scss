@@ -1,0 +1,24 @@
+.seccion-paginado, .seccion-paginado-episodios, .seccion-paginado-ubicaciones{
+    @include flex-centrar;
+    color: $color-texto-principal;
+   
+    .page{
+        @include flex-centrar;
+        flex-direction: column;
+        margin: 5px;
+    }
+    .icono-left, .icono-right, .icono-left-episode, .icono-right-episode, .icono-left-ubicaciones,
+    .icono-right-ubicaciones{
+        background-color: transparent;
+        border: none;
+        font-size: 38px; 
+        cursor: pointer;
+    }
+ 
+    .fa-angle-right, .fa-angle-left{
+     text-align: center; 
+     color: $color-texto-principal;
+     width: 60px;
+     height: 60px;
+    }
+}

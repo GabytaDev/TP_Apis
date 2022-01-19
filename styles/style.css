@@ -26,6 +26,23 @@ a {
   background-color: #000021;
 }
 
+.icono-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ebe8e8;
+  padding: 10px;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.icono-home .fa-home {
+  color: #ebe8e8;
+  font-size: 38px;
+}
+
 .nav-bar {
   display: flex;
   width: 100%;
@@ -135,6 +152,56 @@ a {
   flex-direction: column;
 }
 
+.contenedor-not-found {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.contenedor-not-found .contenedor-imagen-not-found {
+  width: 400px;
+  height: auto;
+}
+.contenedor-not-found .contenedor-imagen-not-found img {
+  width: 100%;
+}
+.contenedor-not-found .contenedor-texto-not-found {
+  color: #ebe8e8;
+  font-size: larger;
+}
+
+.seccion-paginado, .seccion-paginado-episodios, .seccion-paginado-ubicaciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ebe8e8;
+}
+.seccion-paginado .page, .seccion-paginado-episodios .page, .seccion-paginado-ubicaciones .page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
+}
+.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado .icono-left-episode, .seccion-paginado .icono-right-episode, .seccion-paginado .icono-left-ubicaciones,
+.seccion-paginado .icono-right-ubicaciones, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right, .seccion-paginado-episodios .icono-left-episode, .seccion-paginado-episodios .icono-right-episode, .seccion-paginado-episodios .icono-left-ubicaciones,
+.seccion-paginado-episodios .icono-right-ubicaciones, .seccion-paginado-ubicaciones .icono-left, .seccion-paginado-ubicaciones .icono-right, .seccion-paginado-ubicaciones .icono-left-episode, .seccion-paginado-ubicaciones .icono-right-episode, .seccion-paginado-ubicaciones .icono-left-ubicaciones,
+.seccion-paginado-ubicaciones .icono-right-ubicaciones {
+  background-color: transparent;
+  border: none;
+  font-size: 38px;
+  cursor: pointer;
+}
+.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left, .seccion-paginado-episodios .fa-angle-right, .seccion-paginado-episodios .fa-angle-left, .seccion-paginado-ubicaciones .fa-angle-right, .seccion-paginado-ubicaciones .fa-angle-left {
+  text-align: center;
+  color: #ebe8e8;
+  width: 60px;
+  height: 60px;
+}
+
 .contenedor-tarjetas-personaje, .contenedor-tarjetas-ubicaciones, .contenedor-tarjetas-episodios {
   width: auto;
   height: auto;
@@ -145,23 +212,6 @@ a {
   color: #ebe8e8;
   display: flex;
   cursor: pointer;
-}
-
-.icono-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ebe8e8;
-  padding: 10px;
-  margin: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.icono-home .fa-home {
-  color: #ebe8e8;
-  font-size: 38px;
 }
 
 .tarjeta-personaje, .tarjeta-ubicaciones, .tarjeta-episodios {
@@ -196,56 +246,6 @@ a {
 
 .ocultar {
   display: none;
-}
-
-.seccion-paginado, .seccion-paginado-episodios, .seccion-paginado-ubicaciones {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: #ebe8e8;
-}
-.seccion-paginado .page, .seccion-paginado-episodios .page, .seccion-paginado-ubicaciones .page {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 5px;
-}
-.seccion-paginado .icono-left, .seccion-paginado .icono-right, .seccion-paginado .icono-left-episode, .seccion-paginado .icono-right-episode, .seccion-paginado .icono-left-ubicaciones,
-.seccion-paginado .icono-right-ubicaciones, .seccion-paginado-episodios .icono-left, .seccion-paginado-episodios .icono-right, .seccion-paginado-episodios .icono-left-episode, .seccion-paginado-episodios .icono-right-episode, .seccion-paginado-episodios .icono-left-ubicaciones,
-.seccion-paginado-episodios .icono-right-ubicaciones, .seccion-paginado-ubicaciones .icono-left, .seccion-paginado-ubicaciones .icono-right, .seccion-paginado-ubicaciones .icono-left-episode, .seccion-paginado-ubicaciones .icono-right-episode, .seccion-paginado-ubicaciones .icono-left-ubicaciones,
-.seccion-paginado-ubicaciones .icono-right-ubicaciones {
-  background-color: transparent;
-  border: none;
-  font-size: 38px;
-  cursor: pointer;
-}
-.seccion-paginado .fa-angle-right, .seccion-paginado .fa-angle-left, .seccion-paginado-episodios .fa-angle-right, .seccion-paginado-episodios .fa-angle-left, .seccion-paginado-ubicaciones .fa-angle-right, .seccion-paginado-ubicaciones .fa-angle-left {
-  text-align: center;
-  color: #ebe8e8;
-  width: 60px;
-  height: 60px;
-}
-
-.contenedor-not-found {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.contenedor-not-found .contenedor-imagen-not-found {
-  width: 400px;
-  height: auto;
-}
-.contenedor-not-found .contenedor-imagen-not-found img {
-  width: 100%;
-}
-.contenedor-not-found .contenedor-texto-not-found {
-  color: #ebe8e8;
-  font-size: larger;
 }
 
 @media screen and (max-width: 1200px) {

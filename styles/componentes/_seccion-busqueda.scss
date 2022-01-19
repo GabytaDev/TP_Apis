@@ -1,0 +1,33 @@
+.section-busqueda{
+    @include flex-centrar($direccion: row, $content:space-around);
+    padding-top: 20px;
+    background-color: rgb(4, 4, 104);
+    align-items: flex-end;
+}
+
+.form{
+ @include flex-centrar($direccion: row,$content:space-around);
+ align-items: flex-end;
+    .input{
+        width: 200px;
+        height: 40px; 
+        margin-top: 10px;    
+    }
+    .select{
+        width: 200px;
+        height: 40px;
+        margin: 10px 5px 0 5px;
+    }
+    .btn-buscar{
+        @include btn($backgroundColor:$color-boton-background );
+         color: rgb(58, 57, 57);
+    }
+    .label{
+        color: $color-texto-principal;
+        margin-left: 10px;
+    }
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
