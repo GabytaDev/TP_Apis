@@ -15,8 +15,7 @@
     cursor: pointer;
     .fa-home{
         color: $color-texto-principal;
-        font-size: 38px; 
-        
+        font-size: 38px;     
     }
 }
 .nav-bar{
@@ -46,10 +45,8 @@
         a{  
         font-size: larger;
         color: $color-texto-principal;
-        
         }
     }
-
 }
 
 .contenedor-img-personaje{
@@ -73,6 +70,5 @@
     justify-content: center;
     overflow: hidden; 
     background-image: url(../images/fondo-espacio.png);  
-    background-size:auto;
-    
+    background-size:auto; 
 }

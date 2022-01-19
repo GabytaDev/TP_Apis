@@ -1,5 +1,3 @@
-//// MEDIA QUERY///
-
 @media screen and (max-width: 1200px) {
     .header{
         display: flex;
@@ -20,8 +18,7 @@
        }
    }
    .contenedor-img-personaje{
-    display: none;
-       
+    display: none;   
     }
     .contenedor-logo{
         width: 640px;
@@ -55,19 +52,16 @@
     @include flex-centrar($direccion: column, $content: center);
     align-content: center;
     flex-wrap: wrap;
-
     .form{
       .input{
-          width: 90%;
-          
+        width: 90%;    
       }
       .select{
         width: 90%;
        
       }
       .btn-buscar{
-        width: 90%;
-        
+        width: 90%;  
         font-size: medium;
         padding: 5px;
       }
@@ -104,9 +98,7 @@
     }
     .card img{
         width: 150px;
-    }
-   
-    
+    }   
 }
 
 @media screen and (max-width: 500px) {
@@ -115,6 +107,5 @@
     }
     .nav-bar .contenedor-links-nav a {
         font-size: 1em;
-    }
-    
+    }   
 }
