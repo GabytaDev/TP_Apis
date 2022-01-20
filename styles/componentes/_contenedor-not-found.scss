@@ -2,6 +2,10 @@
 .contenedor-not-found{
     @include flex-centrar($direccion: row, $content: center);
     display: none;
+    .icono-flecha-volver{
+        margin: 20px;
+        color: $color-texto-principal;
+    }
     .contenedor-imagen-not-found{
         width: 400px;
         height: auto;
