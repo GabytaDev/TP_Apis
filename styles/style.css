@@ -159,6 +159,10 @@ a {
   align-items: center;
   display: none;
 }
+.contenedor-not-found .icono-flecha-volver {
+  margin: 20px;
+  color: #ebe8e8;
+}
 .contenedor-not-found .contenedor-imagen-not-found {
   width: 400px;
   height: auto;

@@ -146,6 +146,11 @@ botonBuscar.onclick = ()=>{
 const mostarNotfoundHTMl = ()=>{
     contenedorNotFound.style.display="flex"
     contenedorTarjetasPersonaje.style.display="none"
+    const iconoVolverNotFound = document.getElementById("icono-volver-not-found")
+    iconoVolverNotFound.onclick = ()=>{
+        contenedorTarjetasPersonaje.style.display="block"
+        contenedorNotFound.style.display="none"
+    }
 }
 ///PERSONAJE EN HTML ///
 const mostrarPersonajeEnHTML = (array) => {
