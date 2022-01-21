@@ -148,6 +148,7 @@ botonBuscar.onclick = ()=>{
 const mostarNotfoundPersonajeHTMl = ()=>{
     contenedorNotFound.style.display="flex"
     contenedorTarjetasPersonaje.style.display="none"
+    contenedorNotFoundEpisodio.style.display="none"
     const iconoVolverNotFound = document.getElementById("icono-volver-not-personaje")
     iconoVolverNotFound.onclick = ()=>{
         contenedorTarjetasPersonaje.style.display="block"
@@ -158,9 +159,9 @@ const mostarNotfoundPersonajeHTMl = ()=>{
 const mostrarNotFoundEpisodioHTML = ()=>{
     contenedorNotFoundEpisodio.style.display="flex"
     contenedorTarjetasEpisodio.style.display="none"   
+    seccionPaginadoEpisodios.style.display="none"
     const iconoVolverNotEpisodio = document.getElementById("icono-volver-not-episodio")
     iconoVolverNotEpisodio.onclick = ()=>{
-        console.log("clcic", iconoVolverNotEpisodio)
         contenedorNotFoundEpisodio.style.display="none"
         contenedorTarjetasEpisodio.style.display="block"
         todosLosEpisodios()
