@@ -1,5 +1,5 @@
 
-.contenedor-not-found, .contenedor-not-found-episodio{
+.contenedor-not-found,.contenedor-not-found-episodio{
     @include flex-centrar($direccion: row, $content: center);
     display: none;
     .icono-flecha-volver{
