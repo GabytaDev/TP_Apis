@@ -18,6 +18,7 @@ const selectStatus = document.getElementById("select-status")
 const selectGender = document.getElementById("select-gender")
 const selectOrden = document.getElementById("select-orden")
 const contenedorNotFound = document.querySelector(".contenedor-not-found")
+const contenedorNotFoundEpisodio = document.querySelector(".contenedor-not-found-episodio")
 ////// PAGINADO ////
 const seccionPaginado = document.querySelector(".seccion-paginado")
 const pagePrev = document.querySelector("#page-prev")
@@ -143,15 +144,30 @@ botonBuscar.onclick = ()=>{
     guardarParametrosBusquedaLs (true, selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
    buscador ( selectBusqueda.value, inputBuscador.value, selectStatus.value, selectGender.value)
 }
-const mostarNotfoundHTMl = ()=>{
+
+const mostarNotfoundPersonajeHTMl = ()=>{
     contenedorNotFound.style.display="flex"
     contenedorTarjetasPersonaje.style.display="none"
-    const iconoVolverNotFound = document.getElementById("icono-volver-not-found")
+    const iconoVolverNotFound = document.getElementById("icono-volver-not-personaje")
     iconoVolverNotFound.onclick = ()=>{
         contenedorTarjetasPersonaje.style.display="block"
         contenedorNotFound.style.display="none"
     }
 }
+
+const mostrarNotFoundEpisodioHTML = ()=>{
+    contenedorNotFoundEpisodio.style.display="flex"
+    contenedorTarjetasEpisodio.style.display="none"   
+    const iconoVolverNotEpisodio = document.getElementById("icono-volver-not-episodio")
+    iconoVolverNotEpisodio.onclick = ()=>{
+        console.log("clcic", iconoVolverNotEpisodio)
+        contenedorNotFoundEpisodio.style.display="none"
+        contenedorTarjetasEpisodio.style.display="block"
+        todosLosEpisodios()
+        
+    }
+}
+
 ///PERSONAJE EN HTML ///
 const mostrarPersonajeEnHTML = (array) => {
     const html = array.reduce((acc,curr)=>{
@@ -219,7 +235,6 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda, parametroStatus,parametr
     tarjetaEpisodios.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
     seccionPaginadoEpisodios.style.display="none"
-    
    } else if(tipoDeBusqueda === "episode"){
     buscarEpisodio(parametroDeBusqueda)
     tarjetaEpisodios.classList.remove("ocultar")
@@ -227,6 +242,7 @@ const buscador = (tipoDeBusqueda , parametroDeBusqueda, parametroStatus,parametr
     tarjetaPersonaje.classList.add("ocultar")
     tarjetaUbicaciones .classList.add("ocultar")
     seccionPaginado.style.display="none"
+
    }
 }
 
@@ -236,7 +252,8 @@ const obtenerPersonaje = (nombrePersonaje, status, gender )=>{
     .then((res) => res.json())
     .then((data) => {
         if(!data.results){
-            mostarNotfoundHTMl ()    
+            mostarNotfoundPersonajeHTMl () 
+               
         }else{
             mostrarPersonajeEnHTML(data.results) 
             contenedorNotFound.style.display="none"
@@ -252,10 +269,11 @@ const buscarEpisodio = (episodio)=>{
     .then((res)=> res.json())
     .then((data)=>{
         if(!data.results){
-            mostarNotfoundHTMl ()    
+            mostrarNotFoundEpisodioHTML ()   
+            seccionPaginadoEpisodios.style.display="none" 
         }else{
             mostrarEpisodioEnHTML(data.results)
-            contenedorNotFound.style.display="none"
+            contenedorNotFoundEpisodio.style.display="none"
             seccionPaginadoEpisodios.style.display="none"
             contenedorTarjetasEpisodio.style.display="block"
         }
