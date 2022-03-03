@@ -45,6 +45,7 @@ const baseUrl = "https://rickandmortyapi.com/api/"
 
 //Boton home
 btnHome.onclick= ()=>{
+    // me encanta como usas el local storage!
     guardarParametrosBusquedaLs(false,"","","","")
     todosLosPersonajes()
     contenedorTarjetasPersonaje.style.display="block"
@@ -58,6 +59,7 @@ const arrayTarjetas = [
 ]
 
 const mostrarTarjetas = (array, tarjeta)=>{
+    // excelente
     for (let i = 0; i < array.length; i++) {
         if(array[i] != tarjeta){
             array[i].classList.add("ocultar")
@@ -100,6 +102,8 @@ const todosLosPersonajes = ()=>{
     })
 }
 
+// todas las funciones que, como esta, se ejecutan apenas carga la pagina deberian estar al final de todo
+// asi el flujo de ejecucion es mas facil de seguir
 todosLosPersonajes()
 
 
@@ -229,6 +233,7 @@ const mostrarUbicacionEnHTML = (array) => {
 ///BUSCADOR ////
 
 const buscador = (tipoDeBusqueda , parametroDeBusqueda, parametroStatus,parametroGender )=>{
+    // No dejes console log en una entrega
     console.log(tipoDeBusqueda, parametroDeBusqueda)
    if(tipoDeBusqueda === "character"){
     obtenerPersonaje(parametroDeBusqueda, parametroStatus, parametroGender)
@@ -296,6 +301,7 @@ const detalleDePersonaje = ()=>{
 }
 
 const buscarPersonajePorID = (id) =>{
+    // No dejes console log
     console.log(id)
     fetch(`${baseUrl}character/${id}`)
     .then((res) => res.json())
@@ -345,6 +351,7 @@ const detalleDeEpisodio = ()=>{
 }
 
 const buscarEpisodioPorID = (id) =>{
+    // :(
     console.log(id)
     fetch(`${baseUrl}episode/${id}`)
     .then((res) => res.json())
@@ -487,6 +494,7 @@ pagePrev.onclick = () => {
 
 pageNextEpisodios.onclick = () => {
     paginaActual = paginaActual + 1
+    // :(
     console.log("pagina actual next", paginaActual)
     if (paginaActual === ultimaPagina) {
         pageNextEpisodios.disabled = true
@@ -500,6 +508,7 @@ pageNextEpisodios.onclick = () => {
 
 pagePrevEpisodios.onclick = ()=> {
     paginaActual = paginaActual -1 
+    // :(
     console.log("pagina actual prev", paginaActual)
     if (paginaActual === 1) {
         pagePrevEpisodios.disabled = true
@@ -513,6 +522,7 @@ pagePrevEpisodios.onclick = ()=> {
 //Paginado Ubicaciones
 pageNextUbicaciones.onclick = ()=>{
     paginaActual = paginaActual + 1
+    // :(
     console.log("pagina actual next", paginaActual)
     if (paginaActual === ultimaPagina) {
         pageNextUbicaciones.disabled = true
@@ -526,6 +536,7 @@ pageNextUbicaciones.onclick = ()=>{
 
 pagePrevUbicaciones.onclick = ()=>{
     paginaActual = paginaActual -1 
+    // :(
     console.log("pagina actual prev", paginaActual)
     if (paginaActual === 1) {
         pagePrevUbicaciones.disabled = true
@@ -554,6 +565,7 @@ const guardarParametrosBusquedaLs = (esBusqueda,tipoDeBusqueda, parametroDeBusqu
 
 const leerParametrosDeBusqueda = ()=>{
     const busquedaGuardada = localStorage.getItem("busqueda")
+    // falta un const aca 
     busquedaGuardadaJS = JSON.parse(busquedaGuardada)
 
     return(

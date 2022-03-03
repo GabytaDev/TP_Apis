@@ -8,10 +8,12 @@
     <title>Series finder Rick and Morty</title>
     <script src="https://kit.fontawesome.com/037e0b5327.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- ojo con el tabulado aca -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <!-- debe estar en la carpeta principal y en minusculas, no deberias repetirlo -->
     <link rel="icon" type="image/ico" href="./images/imagen.ico">
 </head>
 
@@ -19,9 +21,11 @@
     <header class="header">
         <button class="icono-home" id="btn-home">
             <i class="fas fa-home"></i>
+            <!-- no deberias usar un p como descendiente del boton, pone el texto sin etiqueta -->
             <p>Home</p>
         </button>
         <nav class="nav-bar">
+            <!-- el div no es necesario, el h1 ya es un elemento en bloque -->
             <div><h1 class="titulo">Series finder</h1></div>
             <div>
                 <ul class="contenedor-links-nav">
@@ -34,6 +38,7 @@
     </header>
     <div class="contenedor-imagen-fondo">
         <div class="contenedor-img-personaje">
+            <!-- No uses guiones en tus alt, deben ser una oracion -->
         <img src="./images/58f37747a4fa116215a92414.png" alt="image-rick-and-morty" class="imagen-personajes">
         </div>
         <div class="contenedor-logo">
@@ -44,13 +49,16 @@
         <section class="section-busqueda">
             <form id="formulario" class="form">
                 <div class="seccion-top-form">
+                    <!-- Falta un label o un aria label en cada elemento  -->
                     <input type="text" value="" id="input-buscador" placeholder="Search" class="input"/>
+                    <!-- nunca dejes vacio el name de un selemento -->
                     <select name="" id="select-busqueda" class="select">
                         <option value="character" id="option-characters">Characters</option>
                         <option value="episode" id="option-episodes">Episodes</option>
                     </select>
                 </div>
                 <div class="column">
+                    <!-- el for debe ser igual al id del elemento, no el name -->
                     <label for="status" class="label">Status</label>
                     <select name="status" id="select-status" class="select">        
                         <option value="alive">Alive</option>
@@ -60,6 +68,7 @@
                 </div>
                 
                 <div class="column">
+                    <!-- el for debe ser igual al id del elemento -->
                     <label for="gender" class="label">Gender</label>
                     <select name="" id="select-gender" class="select">
                         <option value="female">Female</option>
@@ -129,6 +138,7 @@
         <section class="contenedor-not-found">
             <div class="contenedor-imagen-not-found">
                 <div class="icono-flecha-volver" id="icono-volver-not-personaje"><i class="fas fa-long-arrow-alt-left"></i>Back</div>
+                <!-- No dejes el alt vacio -->
                 <img src="./images/58f37726a4fa116215a92410.png" alt="">
             </div>
             <div class="contenedor-texto-not-found">
